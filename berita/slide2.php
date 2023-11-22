@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <title>NEWSROOM - Kategori Berita</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -13,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row align-items-center bg-light px-lg-5">
+        <div class="row align-items-center bg-warning px-lg-5">
             <div class="col-12 col-md-8">
                 <div class="d-flex justify-content-between">
                     <div class="bg-primary text-white text-center py-2" style="width: 100px;">Tranding</div>
@@ -39,10 +39,10 @@
                 </div>
             </div>
             <div class="col-md-4 text-right d-none d-md-block">
-                Monday, January 01, 2045
+                Monday, November 22, 2023
             </div>
         </div>
-        <div class="row align-items-center py-2 px-lg-5">
+        <!-- <div class="row align-items-center py-2 px-lg-5">
             <div class="col-lg-4">
                 <a href="" class="navbar-brand d-none d-lg-block">
                     <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
@@ -51,7 +51,7 @@
             <div class="col-lg-8 text-center text-lg-right">
                 <img class="img-fluid" src="img/ads-700x70.jpg" alt="">
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- Topbar End -->
 
@@ -65,10 +65,15 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="col-lg-4">
+                <a href="" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
+                </a>
+            </div>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
-                    <a href="category.php" class="nav-item nav-link">Categories</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="category.php" class="nav-item nav-link active">Categories</a>
                     <a href="single.php" class="nav-item nav-link">Single News</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
@@ -83,8 +88,7 @@
                 <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="Keyword">
                     <div class="input-group-append">
-                        <button class="input-group-text text-secondary"><i
-                                class="fa fa-search"></i></button>
+                        <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -93,356 +97,17 @@
     <!-- Navbar End -->
 
 
-    <!-- Top News Slider Start -->
-    <div class="container-fluid py-3">
-        <div class="container">
-            <div class="owl-carousel owl-carousel-2 carousel-item-3 position-relative">
-                <div class="d-flex">
-                    <img src="img/news-100x100-1.jpg" style="width: 80px; height: 80px; object-fit: cover;">
-                    <div class="d-flex align-items-center bg-light px-3" style="height: 80px;">
-                        <a class="text-secondary font-weight-semi-bold" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <img src="img/news-100x100-2.jpg" style="width: 80px; height: 80px; object-fit: cover;">
-                    <div class="d-flex align-items-center bg-light px-3" style="height: 80px;">
-                        <a class="text-secondary font-weight-semi-bold" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <img src="img/news-100x100-3.jpg" style="width: 80px; height: 80px; object-fit: cover;">
-                    <div class="d-flex align-items-center bg-light px-3" style="height: 80px;">
-                        <a class="text-secondary font-weight-semi-bold" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <img src="img/news-100x100-4.jpg" style="width: 80px; height: 80px; object-fit: cover;">
-                    <div class="d-flex align-items-center bg-light px-3" style="height: 80px;">
-                        <a class="text-secondary font-weight-semi-bold" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Top News Slider End -->
-
-
-    <!-- Main News Slider Start -->
-    <div class="container-fluid py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                        <div class="position-relative overflow-hidden" style="height: 435px;">
-                            <img class="img-fluid h-100" src="img/news-700x435-1.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-1">
-                                    <a class="text-white" href="">Technology</a>
-                                    <span class="px-2 text-white">/</span>
-                                    <a class="text-white" href="">January 01, 2045</a>
-                                </div>
-                                <a class="h2 m-0 text-white font-weight-bold" href="">Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                            </div>
-                        </div>
-                        <div class="position-relative overflow-hidden" style="height: 435px;">
-                            <img class="img-fluid h-100" src="img/news-700x435-2.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-1">
-                                    <a class="text-white" href="">Technology</a>
-                                    <span class="px-2 text-white">/</span>
-                                    <a class="text-white" href="">January 01, 2045</a>
-                                </div>
-                                <a class="h2 m-0 text-white font-weight-bold" href="">Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Categories</h3>
-                        <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
-                    </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Business
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="img/cat-500x80-2.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Technology
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="img/cat-500x80-3.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Entertainment
-                        </a>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="img/cat-500x80-4.jpg" style="object-fit: cover;">
-                        <a href="" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            Sports
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Main News Slider End -->
-
-
-    <!-- Featured News Slider Start -->
-    <div class="container-fluid py-3">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                <h3 class="m-0">Featured</h3>
-                <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
-            </div>
-            <div class="owl-carousel owl-carousel-2 carousel-item-4 position-relative">
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid w-100 h-100" src="img/news-300x300-1.jpg" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-1" style="font-size: 13px;">
-                            <a class="text-white" href="">Technology</a>
-                            <span class="px-1 text-white">/</span>
-                            <a class="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a class="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid w-100 h-100" src="img/news-300x300-2.jpg" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-1" style="font-size: 13px;">
-                            <a class="text-white" href="">Technology</a>
-                            <span class="px-1 text-white">/</span>
-                            <a class="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a class="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid w-100 h-100" src="img/news-300x300-3.jpg" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-1" style="font-size: 13px;">
-                            <a class="text-white" href="">Technology</a>
-                            <span class="px-1 text-white">/</span>
-                            <a class="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a class="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid w-100 h-100" src="img/news-300x300-4.jpg" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-1" style="font-size: 13px;">
-                            <a class="text-white" href="">Technology</a>
-                            <span class="px-1 text-white">/</span>
-                            <a class="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a class="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-                <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <img class="img-fluid w-100 h-100" src="img/news-300x300-5.jpg" style="object-fit: cover;">
-                    <div class="overlay">
-                        <div class="mb-1" style="font-size: 13px;">
-                            <a class="text-white" href="">Technology</a>
-                            <span class="px-1 text-white">/</span>
-                            <a class="text-white" href="">January 01, 2045</a>
-                        </div>
-                        <a class="h4 m-0 text-white" href="">Sanctus amet sed ipsum lorem</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Featured News Slider End -->
-
-
-    <!-- Category News Slider Start -->
+    <!-- Breadcrumb Start -->
     <div class="container-fluid">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 py-3">
-                    <div class="bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Business</h3>
-                    </div>
-                    <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 py-3">
-                    <div class="bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Technology</h3>
-                    </div>
-                    <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-4.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-5.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <nav class="breadcrumb bg-transparent m-0 p-0">
+                <a class="breadcrumb-item" href="#">Home</a>
+                <a class="breadcrumb-item" href="#">Category</a>
+                <span class="breadcrumb-item active">Technology</span>
+            </nav>
         </div>
     </div>
-    </div>
-    <!-- Category News Slider End -->
-
-
-    <!-- Category News Slider Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 py-3">
-                    <div class="bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Entertainment</h3>
-                    </div>
-                    <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-5.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-4.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 py-3">
-                    <div class="bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Sports</h3>
-                    </div>
-                    <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Category News Slider End -->
+    <!-- Breadcrumb End -->
 
 
     <!-- News With Sidebar Start -->
@@ -450,46 +115,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">Popular</h3>
+                            <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
+                                <h3 class="m-0"  style="color: white;">Technology</h3>
                                 <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
+                                <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
                                         <a href="">Technology</a>
                                         <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
+                                        <span>November 22, 2023</span>
                                     </div>
-                                    <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                    <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                                    <a class="h4" href="berita1.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
+                                    <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" 
+                                        ala iPhone Tecno Spark 20C adalah HP kelas menengah baru yang dirilis...</p>
                                 </div>
                             </div>
-                            <div class="d-flex mb-3">
-                                <img src="img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                                    <div class="mb-1" style="font-size: 13px;">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="kabel.jpg" style="object-fit: cover;">
+                                <div class="overlay position-relative bg-light">
+                                    <div class="mb-2" style="font-size: 14px;">
                                         <a href="">Technology</a>
                                         <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
+                                        <span>November 22, 2023</span>
                                     </div>
-                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-3">
-                                <img src="img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                                    <div class="mb-1" style="font-size: 13px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                    <a class="h4" href="berita2.php">Jaringan Kabel Fiber MNC Vision Dibeli Asianet Rp 2,42 Triliun</a>
+                                    <p class="m-0">MNC Vision resmi menjual sebagian aset jaringan infrastruktur fiber 
+                                        to the home (FTTH) dan infrastruktur fixed broadband kepada Asianet.</p>
                                 </div>
                             </div>
                         </div>
@@ -506,41 +165,6 @@
                                     <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                                 </div>
                             </div>
-                            <div class="d-flex mb-3">
-                                <img src="img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                                    <div class="mb-1" style="font-size: 13px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-3">
-                                <img src="img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                                    <div class="mb-1" style="font-size: 13px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 pb-3">
-                        <a href=""><img class="img-fluid w-100" src="img/ads-700x70.jpg" alt=""></a>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                                <h3 class="m-0">Latest</h3>
-                                <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
-                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
@@ -555,6 +179,67 @@
                                     <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <a href=""><img class="img-fluid w-100" src="img/ads-700x70.jpg" alt=""></a>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="teknologi.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="d-flex mb-3">
                                 <img src="img/news-100x100-5.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
@@ -566,6 +251,8 @@
                                     <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="d-flex mb-3">
                                 <img src="img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
@@ -579,18 +266,6 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="">Technology</a>
-                                        <span class="px-1">/</span>
-                                        <span>January 01, 2045</span>
-                                    </div>
-                                    <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                    <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                                </div>
-                            </div>
                             <div class="d-flex mb-3">
                                 <img src="img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
@@ -602,6 +277,8 @@
                                     <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="d-flex mb-3">
                                 <img src="img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
@@ -614,14 +291,63 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex mb-3">
+                                <img src="img/news-100x100-5.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                    <div class="mb-1" style="font-size: 13px;">
+                                        <a href="">Technology</a>
+                                        <span class="px-1">/</span>
+                                        <span>January 01, 2045</span>
+                                    </div>
+                                    <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span class="fa fa-angle-double-left" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="category.php">1</a></li>
+                                    <li class="page-item active"><a class="page-link" href="slide2.php">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="slide3.php">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 pt-3 pt-lg-0">
                     <!-- Social Follow Start -->
                     <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Follow Us</h3>
+                        <div class="bg-dark py-2 px-4 mb-3">
+                            <h3 class="m-0"  style="color: white;">Follow Us</h3>
                         </div>
                         <div class="d-flex mb-3">
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
@@ -652,11 +378,11 @@
 
                     <!-- Newsletter Start -->
                     <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Newsletter</h3>
+                        <div class="bg-dark py-2 px-4 mb-3">
+                            <h3 class="m-0" style="color: white;">Newsletter</h3>
                         </div>
                         <div class="bg-light text-center p-4 mb-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
+                            <p>Silahkan sign up jika anda ingin menampilkan berita</p>
                             <div class="input-group" style="width: 100%;">
                                 <input type="text" class="form-control form-control-lg" placeholder="Your Email">
                                 <div class="input-group-append">
@@ -676,8 +402,8 @@
 
                     <!-- Popular News Start -->
                     <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Tranding</h3>
+                        <div class="bg-dark py-2 px-4 mb-3">
+                            <h3 class="m-0" style="color: white;">Tranding</h3>
                         </div>
                         <div class="d-flex mb-3">
                             <img src="img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
@@ -739,8 +465,8 @@
 
                     <!-- Tags Start -->
                     <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Tags</h3>
+                        <div class="bg-dark py-2 px-4 mb-3">
+                            <h3 class="m-0" style="color: white;">Tags</h3>
                         </div>
                         <div class="d-flex flex-wrap m-n1">
                             <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
@@ -830,10 +556,10 @@
     </div>
     <div class="container-fluid py-4 px-sm-3 px-md-5">
         <p class="m-0 text-center">
-            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. 
-			
-			<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-			Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved.
+
+            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+            Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
         </p>
     </div>
     <!-- Footer End -->
