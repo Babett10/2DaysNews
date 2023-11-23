@@ -47,7 +47,7 @@
                                 <span class="px-2 text-white">/</span>
                                 <a class="text-white">January 01, 2045</a>
                             </div>
-                            <a class="h2 m-0 text-white font-weight-bold" href="detail.php">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a>
+                            <a class="h2 m-0 text-white font-weight-bold" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a>
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden" style="height: 750px;">
@@ -59,6 +59,17 @@
                                 <a class="text-white" href="detail.php">January 01, 2045</a>
                             </div>
                             <a class="h2 m-0 text-white font-weight-bold" href="">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a>
+                        </div>
+                    </div>
+                    <div class="position-relative overflow-hidden" style="height: 750px;">
+                        <img class="img-fluid h-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-1">
+                                <a class="text-white" href="">Technology</a>
+                                <span class="px-2 text-white">/</span>
+                                <a class="text-white" href="detail.php">January 01, 2045</a>
+                            </div>
+                            <a class="h2 m-0 text-white font-weight-bold" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
                         </div>
                     </div>
                 </div>
@@ -81,19 +92,19 @@
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
                             <h3 class="text-white m-0">Latest</h3>
-                            <a class="text-white font-weight-medium text-decoration-none " href="">View All</a>
+                            <a class="text-white font-weight-medium text-decoration-none" href="#">View All</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
                                     <a href="#">Technology</a>
                                     <span class="px-1">/</span>
                                     <span>January 01, 2045</span>
                                 </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
+                                <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
                                 <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                             </div>
                         </div>
@@ -204,20 +215,24 @@
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0 text-white">Categories</h3>
                     </div>
-                    <div class="d-flex mb-3">
+                    <div class="d-flex mb-2">
                         <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
                         <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sports</a>
                     </div>
-                    <div class="d-flex mb-3">
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sports</a>
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Economy</a>
+                    <div class="d-flex mb-2">
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sports</a>
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
+                    </div>
+                    <div class="d-flex mb-2">
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Film</a>
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Otomotif</a>
                     </div>
                 </div>
                 <!-- Category End -->
                 <!-- Social Follow Start -->
                 <div class="pb-3">
-                    <div class="bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0">Follow Us</h3>
+                    <div class="bg-dark py-2 px-4 mb-3">
+                        <h3 class="m-0 text-white" >Follow Us</h3>
                     </div>
                     <div class="d-flex mb-3">
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
@@ -249,29 +264,7 @@
         </div>
     </div>
     <!-- News With Sidebar End -->
-    <div class="col-12">
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span class="fa fa-angle-double-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item "><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- News With Sidebar End -->
-
+    
 
     <!-- Footer Start -->
     <?php include 'footer.php'; ?>

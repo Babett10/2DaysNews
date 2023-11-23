@@ -60,8 +60,12 @@
                                     <span>November 22, 2023</span>
                                 </div>
                                 <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"
-                                    ala iPhone Tecno Spark 20C adalah HP kelas menengah baru yang dirilis...</p>
+                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C 
+                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi 
+                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
+                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
+                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
+                                Spark 20C hadir dengan pembaruan..</p>
                             </div>
                         </div>
                     </div>
@@ -130,7 +134,7 @@
                 <!-- Hot News End -->
                 <!-- Social Follow Start -->
                 <div class="pb-3">
-                    <div class="bg-dark py-2 px-4 mb-3">
+                    <div class="bg-dark py-2 px-4 mb-4">
                         <h3 class="m-0" style="color: white;">Follow Us</h3>
                     </div>
                     <div class="d-flex mb-3">
