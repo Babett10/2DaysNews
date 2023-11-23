@@ -31,28 +31,28 @@
     <!-- Topbar End -->
    
     <!-- Contact Start -->
-    <div class="container-fluid py-3">
-        <div class="container">
+    <div class="container-fluid py-3 px-lg-5 ">
+        
             <div class="bg-dark py-2 px-4 mb-3">
                 <h3 class="m-0" style="color: white;">Contact Us For Any Queries</h3>
             </div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="bg-light mb-3" style="padding: 30px;">
-                        <h6 class="font-weight-bold">Get in touch</h6>
-                        <p>Labore ipsum ipsum rebum erat amet nonumy, nonumy erat justo sit dolor ipsum sed, kasd lorem sit et duo dolore justo lorem stet labore, diam dolor et diam dolor eos magna, at vero lorem elitr</p>
+                        <h6 class="font-weight-bold">Get In Touch</h6>
+                        <p>We're approachable and would love to speak to you. Feed free call, send us an email,our office us or simply complete the enquiry form.</p>
                         <div class="d-flex align-items-center mb-3">
                             <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
                             <div class="d-flex flex-column">
                                 <h6 class="font-weight-bold">Our Office</h6>
-                                <p class="m-0">123 Street, New York, USA</p>
+                                <p class="m-0">123 Street, indonesia </p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-3">
                             <i class="fa fa-2x fa-envelope-open text-primary mr-3"></i>
                             <div class="d-flex flex-column">
                                 <h6 class="font-weight-bold">Email Us</h6>
-                                <p class="m-0">info@example.com</p>
+                                <p class="m-0">info@2DayNews.com</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
@@ -66,6 +66,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="contact-form bg-light mb-3" style="padding: 30px;">
+                    <h6 class="font-weight-bold" style="padding-bottom: 7px;">Send Us A Message</h6>
                         <div id="success"></div>
                         <form name="sentMessage" id="contactForm" novalidate="novalidate">
                             <div class="form-row">
@@ -87,7 +88,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" rows="4" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4 " rows="4" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
