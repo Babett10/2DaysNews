@@ -110,7 +110,7 @@
                         <div class="media">
                             <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
+                                <h6><a href="">John doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
                                 <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
                                     accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                     Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
@@ -258,24 +258,6 @@
                         </div>
                     </div>
                     <!-- Social Follow End -->
-
-                    <!-- Newsletter Start -->
-                    <div class="pb-3">
-                        <div class="bg-dark py-2 px-4 mb-3">
-                            <h3 class="m-0" style="color: white;">Newsletter</h3>
-                        </div>
-                        <div class="bg-light text-center p-4 mb-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                            </div>
-                            <small>Sit eirmod nonumy kasd eirmod</small>
-                        </div>
-                    </div>
-                    <!-- Newsletter End -->
 
                     <!-- Ads Start -->
                     <div class="mb-3 pb-3">
