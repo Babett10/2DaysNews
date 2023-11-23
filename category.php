@@ -34,10 +34,12 @@
         <!-- Tags Start -->
         <div class="pb-3">
             <div class="d-flex flex-wrap m-n1">
-                <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
+                <a href="" class="btn btn-sm btn-outline-secondary m-1">Politik</a>
                 <a href="" class="btn btn-sm btn-outline-secondary m-1">Sport</a>
-                <a href="" class="btn btn-sm btn-outline-secondary m-1">Economy</a>
-                <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
+                <a href="" class="btn btn-sm btn-outline-secondary m-1">E-Sport</a>
+                <a href="" class="btn btn-sm btn-outline-secondary m-1">Selebriti</a>
+                <a href="" class="btn btn-sm btn-outline-secondary m-1">Otomotif</a>
+                <a href="" class="btn btn-sm btn-outline-secondary m-1">Film</a>
             </div>
         </div>
         <!-- Tags End -->
@@ -60,19 +62,15 @@
                                     <span>November 22, 2023</span>
                                 </div>
                                 <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"
-                                    ala iPhone Tecno Spark 20C adalah HP kelas menengah baru yang dirilis...</p>
+                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C 
+                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi 
+                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
+                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
+                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
+                                Spark 20C hadir dengan pembaruan..</p>
                             </div>
                         </div>
                     </div>
-                    <!-- economy -->
-
-                    <!-- <div class="col-12">
-                        <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
-                            <h3 class="text-white m-0">Economy</h3>
-                            <a class="text-white font-weight-medium text-decoration-none " href="">View All</a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -130,7 +128,7 @@
                 <!-- Hot News End -->
                 <!-- Social Follow Start -->
                 <div class="pb-3">
-                    <div class="bg-dark py-2 px-4 mb-3">
+                    <div class="bg-dark py-2 px-4 mb-4">
                         <h3 class="m-0" style="color: white;">Follow Us</h3>
                     </div>
                     <div class="d-flex mb-3">
@@ -168,7 +166,7 @@
         <div class="row">
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Business</h3>
+                    <h3 class="m-0" style="color: white;">Politik</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
@@ -208,7 +206,7 @@
             </div>
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Technology</h3>
+                    <h3 class="m-0" style="color: white;">sport</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
@@ -247,15 +245,12 @@
                 </div>
             </div>
         </div>
-
         <!-- Category News Slider End -->
-
-
         <!-- Category News Slider Start -->
         <div class="row">
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Entertainment</h3>
+                    <h3 class="m-0" style="color: white;">E-Sport</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
@@ -295,7 +290,92 @@
             </div>
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Sports</h3>
+                    <h3 class="m-0" style="color: white;">Selebriti</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category News Slider End -->
+        <!-- Category News Slider Start -->
+        <div class="row">
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">Otomotif</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-5.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-4.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">Film</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
