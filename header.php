@@ -34,7 +34,7 @@
                     <a href="index.php" class="nav-item nav-link ">Home</a>
                     <a href="category.php" class="nav-item nav-link">Categories</a>
                     <a href="contact.php" class="nav-item nav-link">Contact</a>
-                    <a href="#" class="nav-item nav-link">Login</a>
+                    <a href="login.php" class="nav-item nav-link">Login</a>
                 </div>
                 <div class="input-group" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="search">
