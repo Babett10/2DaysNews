@@ -188,7 +188,7 @@
                                 <span class="px-1">/</span>
                                 <span>January 01, 2045</span>
                             </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
                         </div>
                     </div>
                     <div class="position-relative">
