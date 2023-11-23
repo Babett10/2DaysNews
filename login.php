@@ -32,7 +32,7 @@
 
 <body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
 
-<section class="user-login section ">
+<section class="user-login section k">
 	<div class="container ">
 		<div class="row" style="  justify-content: center; "  >
 			<div class="col-4" >
