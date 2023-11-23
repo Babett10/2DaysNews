@@ -76,14 +76,8 @@
             </div>
 
         </div>
-        <div class="container">
-        </div>
     </div>
     <!-- Main News Slider End -->
-
-
-
-
     <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5">
         <div class="row">
@@ -155,8 +149,7 @@
                     </div>
                 </div>
             </div>
-                        
-                
+            <!-- breaking news -->
             <div class="col-lg-4 pt-3 pt-lg-0">
                 <!-- Hot News Start -->
                 <div class="pb-3">
@@ -207,7 +200,6 @@
                             <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                         </div>
                     </div>
-
                 </div>
                 <!-- Hot News End -->
                 <!-- Category Start -->
@@ -232,7 +224,7 @@
                 <!-- Social Follow Start -->
                 <div class="pb-3">
                     <div class="bg-dark py-2 px-4 mb-3">
-                        <h3 class="m-0 text-white" >Follow Us</h3>
+                        <h3 class="m-0 text-white">Follow Us</h3>
                     </div>
                     <div class="d-flex mb-3">
                         <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
@@ -264,16 +256,13 @@
         </div>
     </div>
     <!-- News With Sidebar End -->
-    
 
     <!-- Footer Start -->
     <?php include 'footer.php'; ?>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

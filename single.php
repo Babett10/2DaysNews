@@ -45,7 +45,6 @@
     </div>
     <!-- Breadcrumb End -->
 
-
     <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5 ">
         <div class="row">
@@ -147,8 +146,8 @@
                     <!-- Comment Form End -->
                 </div>
 
+                <!-- popular news -->
                 <div class="col-lg-4 pt-3 pt-lg-0">
-                    
                     <!-- Popular News Start -->
                     <div class="pb-3">
                         <div class="bg-dark py-2 px-4 mb-3">
@@ -251,7 +250,6 @@
     <!-- Footer Start -->
     <?php include 'footer.php'; ?>
     <!-- Footer End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>

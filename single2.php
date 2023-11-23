@@ -13,7 +13,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -26,8 +26,8 @@
 </head>
 
 <body>
-     <!-- Topbar Start -->
-     <?php include 'header.php'; ?>
+    <!-- Topbar Start -->
+    <?php include 'header.php'; ?>
     <!-- Topbar End -->
 
     <!-- Breadcrumb Start -->
@@ -61,14 +61,14 @@
                             <div>
                                 <h3 class="mb-3">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</h3>
                                 <p>MNC Vision resmi menjual sebagian aset jaringan infrastruktur fiber to the home
-                                    (FTTH) dan infrastruktur fixed broadband kepada Asianet.T MNC Vision Networks 
+                                    (FTTH) dan infrastruktur fixed broadband kepada Asianet.T MNC Vision Networks
                                     Tbk (IPTV) selaku pemilik layanan TV kabel MNC Play, resmi menjual sebagian aset
-                                    jaringan infrastruktur fiber to the home (FTTH), kabel dan infrastruktur fixed 
-                                    broadband kepada PT Asianet Media Teknologi.Sementara pelanggan PT MNC Kabel 
+                                    jaringan infrastruktur fiber to the home (FTTH), kabel dan infrastruktur fixed
+                                    broadband kepada PT Asianet Media Teknologi.Sementara pelanggan PT MNC Kabel
                                     Mediacom (MKM) atau subscriber MNC Play, dialihkan kepada PT Indosat Tbk (ISAT).
-                                    Selanjutnya, Indosat akan menggunakan jaringan yang dibeli Asianet itu untuk 
+                                    Selanjutnya, Indosat akan menggunakan jaringan yang dibeli Asianet itu untuk
                                     menggelar layananfiber to the home (FTTH), Indosat HiFi.
-                                    </p>
+                                </p>
                                 <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
                                     vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
                                     nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
@@ -111,14 +111,13 @@
                             <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
                                 <h6><a href="">John doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
+                                <p>Diam amet duo labore stet elitr inviunt ea clita ipsum voluptua, tempor labore
                                     accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                     Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
                                     consetetur at sit.</p>
                                 <button class="btn btn-sm btn-outline-secondary">Reply</button>
                                 <div class="media mt-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
-                                        style="width: 45px;">
+                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
                                         <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
                                         <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
@@ -155,8 +154,7 @@
                                 <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment"
-                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
                             </div>
                         </form>
                     </div>
@@ -164,11 +162,11 @@
                 </div>
 
                 <div class="col-lg-4 pt-3 pt-lg-0">
-                    
+
                     <!-- Popular News Start -->
                     <div class="pb-3">
                         <div class="bg-dark py-2 px-4 mb-3">
-                            <h3 class="m-0" style="color: white;" >Tranding</h3>
+                            <h3 class="m-0" style="color: white;">Tranding</h3>
                         </div>
                         <div class="d-flex mb-3">
                             <img src="img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
