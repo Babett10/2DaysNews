@@ -177,7 +177,7 @@
                                 <span class="px-1">/</span>
                                 <span>January 01, 2023</span>
                             </div>
-                            <a class="h4 m-0" href="">Samet amet ipsum loream</a>
+                            <a class="h4 m-0" href="">amett amet ipsum loream</a>
                         </div>
                     </div>
                     <div class="position-relative">
