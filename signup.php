@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>2DayNews-Login</title>
+  <title>2DayNews-Sign-Up</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -18,7 +17,7 @@
 
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-
+  
   <!-- PLUGINS CSS STYLE -->
   <link rel="stylesheet" href="login/plugins/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="login/plugins/themify-icons/themify-icons.css">
@@ -48,44 +47,46 @@
   </style>
 </head>
 
-<body class="body-wrapper blur" data-spy="scroll" data-target=".privacy-nav">
+<body class="body-wrapper blur" data-spy="scroll" data-target=".privacy-nav" >
 
-  <section class="user-login " style="padding-top: 70px;">
-    <div class="container ">
-      <div class="row" style="justify-content: center;">
-        <div class="col-5">
-          <div class="block box bg-white" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
-            <!-- Content -->
-            <div class="content text-center">
-              <a href=""><img src="login/logo.jpg" width="230px" alt=""></a>
-              <div class="title-text">
-                <h3><b>Sign In </b></h3>
-              </div>
-              <form action="#">
-                <!-- Username -->
-                <input class="form-control main box" type="text" placeholder="Username" required>
-                <!-- Password -->
-                <input class="form-control main box" type="password" placeholder="Password" required>
-                <!-- Submit Button -->
-                <button class="btn btn-main-sm box"><a href="Dashboard/admin.php">Sign In</a></button>
-              </form>
-              <div class="new-acount">
-                <a href="#">Forget your password?</a>
-                <p>Don't Have an account? <a href="signup.php" class="text-primary"> SIGN UP</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="user-login " style="padding-top: 40px;">
+	<div class="container ">
+		<div class="row " style="justify-content: center;" >
+			<div class="col-5" >
+				<div class="block bg-white" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
+					<!-- Content -->
+					<div class="content text-center">
+							<a href=""><img src="login/logo.jpg" width="230px"  alt=""></a>
+						<div class="title-text">
+							<h3><b>Sign Up </b></h3>
+						</div>
+						<form action="#">
+							<!-- Username -->
+							<input class="form-control main" type="text" placeholder="Username" required>
+							<!-- Email -->
+							<input class="form-control main" type="email" placeholder="Password" required>
+							<!-- Password -->
+							<input class="form-control main" type="password" placeholder="Konfirmasi Password" required>
+							<!-- Submit Button -->
+							<button class="btn btn-main-sm"><a href="Dashboard/admin.php">Sign Up</a></button>
+						</form>
+						<div class="new-acount">
+							<p>By clicking “Sign Up” I agree to <a href="privacy-policy.html">Terms of Conditions.</a></p>
+							<p>Anready have an account? <a href="login.php" class="text-primary">SIGN IN</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 
   <!-- To Top -->
   <div class="scroll-top-to">
     <i class="ti-angle-up"></i>
   </div>
-
+  
   <!-- JAVASCRIPTS -->
   <script src="login/plugins/jquery/jquery.min.js"></script>
   <script src="login/plugins/bootstrap/bootstrap.min.js"></script>
@@ -96,7 +97,7 @@
   <!-- google map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g"></script>
   <script src="login/plugins/google-map/gmap.js"></script>
-
+  
   <script src="login/js/script.js"></script>
 </body>
 
