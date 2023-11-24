@@ -37,7 +37,8 @@
       background-repeat: no-repeat;
       background-position: center;
     }
-    .blur{
+
+    .blur {
       position: absolute;
       top: 0;
       left: 0;
