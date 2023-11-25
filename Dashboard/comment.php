@@ -123,80 +123,26 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="container">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Posts</h1>
+                        <h1 class="h2">Comment</h1>
                     </div>
 
-                    <div class="table-responsive col-lg-12">
-                        <a href="#" class="btn btn-primary mb-3">Create Posts</a>
-
-                        <table id="myTable" class="table table-bordered  table-striped table-sm">
+                    <div class="table-responsive col-lg-6">
+                        <table class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col" style="width: 30px;">No</th>
-                                    <th scope="col" style="width: 200px;">Tittle</th>
-                                    <th scope="col" style="width: 150px;">Picture</th>
-                                    <th scope="col" style="width: 120px;">Publist at</th>
-                                    <th scope="col" style="width: 250px;">Description</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" style="width: 230px;">Comment</th>
+                                    <th scope="col" style="width: 100px;">Date</th>
+                                    <th scope="col" style="width: 50px;">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</td>
-                                    <td><img src="../img/news-500x280-1.jpg" style="width: 150px;"></td>
+                                    <td>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore accusam ipsum et no at....</td>
                                     <td>22 November 2023</td>
-                                    <td>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C adalah HP kelas menengah baru yang dirilis....</td>
-                                    <td>Teknologi</td>
-                                    <td>Rozi</td>
                                     <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Barcelona Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Real Madrid Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Real Madrid Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
                                         <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
                                     </td>
                                 </tr>
@@ -220,11 +166,6 @@
     <script>
         feather.replace();
     </script>
-    <script type="text/javascript">	 
-	$(document).ready(function () {	
-        $('#myTable').DataTable();
-	});
-    </script>
+  
 </body>
-
 </html>
