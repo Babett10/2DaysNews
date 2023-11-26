@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NEWSROOM - Kategori Berita</title>
+    <title>2DAYNEWS | Category</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="shortcut icon" href="img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -62,12 +62,12 @@
                                     <span>November 22, 2023</span>
                                 </div>
                                 <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C 
-                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi 
-                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
-                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
-                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
-                                Spark 20C hadir dengan pembaruan..</p>
+                                <p class="m-0">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C
+                                    adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi
+                                    meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
+                                    Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
+                                    yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
+                                    Spark 20C hadir dengan pembaruan..</p>
                             </div>
                         </div>
                     </div>

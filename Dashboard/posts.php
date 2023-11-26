@@ -1,3 +1,23 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require '../php/functions.php';
+
+$posts = query("SELECT posts.id, judul, publish, category.nama_category, author.nama_author
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY posts.id ASC");
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +27,13 @@
 
     <!-- Css Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <!-- Datatable -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
     <!-- Css Icon Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -127,79 +147,38 @@
                     </div>
 
                     <div class="table-responsive col-lg-12">
-                        <a href="#" class="btn btn-primary mb-3">Create Posts</a>
+                        <a href="../php/posts/create.php" class="btn btn-primary mb-3">Create Posts</a>
 
                         <table id="myTable" class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="width: 30px;">No</th>
-                                    <th scope="col" style="width: 200px;">Tittle</th>
-                                    <th scope="col" style="width: 150px;">Picture</th>
-                                    <th scope="col" style="width: 120px;">Publist at</th>
-                                    <th scope="col" style="width: 250px;">Description</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tittle</th>
+                                    <th scope="col">Publist at</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
+                            <?php $i = 1; ?>
+
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</td>
-                                    <td><img src="../img/news-500x280-1.jpg" style="width: 150px;"></td>
-                                    <td>22 November 2023</td>
-                                    <td>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C adalah HP kelas menengah baru yang dirilis....</td>
-                                    <td>Teknologi</td>
-                                    <td>Rozi</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Barcelona Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Real Madrid Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Real Madrid Memenangkan Liga Champions Ke-14</td>
-                                    <td></td>
-                                    <td>22 November 2023</td>
-                                    <td></td>
-                                    <td>Sepak Bola</td>
-                                    <td>Carlo Ancelotti</td>
-                                    <td>
-                                        <a href="#" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($posts as $post) : ?>
+                                    <tr>
+                                        <td><?= $i; ?>.</td>
+                                        <td><?= $post['judul']; ?></td>
+                                        <td><?= $post['publish']; ?></td>
+                                        <td><?= $post['nama_category']; ?></td>
+                                        <td><?= $post['nama_author']; ?></td>
+                                        <td>
+                                            <a href="../php/posts/show.php?id=<?= $post['id']; ?>" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
+                                            <a href="../php/posts/edit.php?id=<?= $post['id']; ?>" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
+                                            <a href="../php/posts/delete.php?id=<?= $post['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -208,8 +187,6 @@
         </div>
     </div>
 
-    <!-- JS Lokal -->
-    <script src="../js/script.js"></script>
     <!-- JS Dashboard -->
     <script src="../js/dashboard.js"></script>
     <!-- JS Feather icon -->
@@ -220,10 +197,11 @@
     <script>
         feather.replace();
     </script>
-    <script type="text/javascript">	 
-	$(document).ready(function () {	
-        $('#myTable').DataTable();
-	});
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
     </script>
 </body>
 

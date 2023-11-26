@@ -1,3 +1,19 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require '../php/functions.php';
+
+$comment = query("SELECT id, comment, tanggal FROM comment");
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +23,13 @@
 
     <!-- Css Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <!-- Datatable -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
     <!-- Css Icon Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -126,26 +142,31 @@
                         <h1 class="h2">Comment</h1>
                     </div>
 
-                    <div class="table-responsive col-lg-6">
+                    <div class="table-responsive col-lg-8">
                         <table class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="width: 30px;">No</th>
-                                    <th scope="col" style="width: 230px;">Comment</th>
-                                    <th scope="col" style="width: 100px;">Date</th>
-                                    <th scope="col" style="width: 50px;">Action</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Comment</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
+                            <?php $i = 1; ?>
+
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore accusam ipsum et no at....</td>
-                                    <td>22 November 2023</td>
-                                    <td>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($comment as $coment) : ?>
+                                    <tr>
+                                        <td><?= $i; ?>.</td>
+                                        <td><?= $coment['comment']; ?></td>
+                                        <td><?= $coment['tanggal']; ?></td>
+                                        <td>
+                                            <a href="../php/comment/delete.php?id=<?= $coment['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -154,8 +175,6 @@
         </div>
     </div>
 
-    <!-- JS Lokal -->
-    <script src="../js/script.js"></script>
     <!-- JS Dashboard -->
     <script src="../js/dashboard.js"></script>
     <!-- JS Feather icon -->
@@ -166,6 +185,7 @@
     <script>
         feather.replace();
     </script>
-  
+
 </body>
+
 </html>

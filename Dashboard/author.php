@@ -1,3 +1,19 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require '../php/functions.php';
+
+$author = query("SELECT id, nama_author FROM author");
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +23,13 @@
 
     <!-- Css Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <!-- Datatable -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
     <!-- Css Icon Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -126,51 +142,32 @@
                         <h1 class="h2">Author</h1>
                     </div>
 
-                    <div class="table-responsive col-lg-3">
-                        <a href="#" class="btn btn-primary mb-3">Create Author</a>
+                    <div class="table-responsive col-lg-6">
+                        <a href="../php/author/create.php" class="btn btn-primary mb-3">Create Author</a>
 
                         <table class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th scope="col">No</th>
+                                    <th scope="col">#</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
 
+                            <?php $i = 1; ?>
+
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Rozi</td>
-                                    <td>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Roni</td>
-                                    <td>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Nina</td>
-                                    <td>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Sasa</td>
-                                    <td>
-                                        <a href="#" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                        <a href="#" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($author as $auth) : ?>
+                                    <tr>
+                                        <td><?= $i; ?>.</td>
+                                        <td><?= $auth['nama_author']; ?></td>
+                                        <td>
+                                            <a href="../php/author/edit.php?id=<?= $auth['id']; ?>" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
+                                            <a href="../php/author/delete.php?id=<?= $auth['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -179,8 +176,6 @@
         </div>
     </div>
 
-    <!-- JS Lokal -->
-    <script src="../js/script.js"></script>
     <!-- JS Dashboard -->
     <script src="../js/dashboard.js"></script>
     <!-- JS Feather icon -->
@@ -191,6 +186,7 @@
     <script>
         feather.replace();
     </script>
-  
+
 </body>
+
 </html>
