@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-4 px-sm-3 px-md-5">
+    <div class="container-fluid py-4 px-sm-3 px-md-5"style="background-color: orange">
         <p class="m-0 text-center">
             &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. 
 			
