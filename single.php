@@ -1,3 +1,18 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require 'php/functions.php';
+
+$id = $_GET['id'];
+$posts = query("SELECT posts.id, img, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
+FROM posts 
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+WHERE posts.id = $id")[0];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,8 +52,8 @@
                 <nav class="breadcrumb bg-transparent m-0 p-0">
                     <a class="breadcrumb-item" href="index.php">Home</a>
                     <a class="breadcrumb-item" href="category.php">Category</a>
-                    <a class="breadcrumb-item" href="#">Technology</a>
-                    <span class="breadcrumb-item active">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</span>
+                    <a class="breadcrumb-item" href="#"><?= $posts['nama_category'];?></a>
+                    <span class="breadcrumb-item active"><?= $posts['judul'];?></span>
                 </nav>
             </div>
         </div>
@@ -51,32 +66,19 @@
             <div class="col-lg-8">
                 <!-- News Detail Start -->
                 <div class="position-relative mb-3">
-                    <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                    <img class="img-fluid w-100" src="img/<?= $posts['img'];?>" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#">Technology</a>
+                            <a href="#"><?= $posts['nama_category'];?></a>
                             <span class="px-1">/</span>
-                            <span>January 01, 2045</span>
+                            <span ><?= $posts['publish'];?></span>
                         </div>
                         <div class="mb-3">
-                            <a>By Fahruz</a>
+                            <a><?php echo "By ".$posts['nama_author'];?></a>
                         </div>
                         <div>
-                            <h3 class="mb-3">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</h3>
-                            <p>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C
-                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi
-                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
-                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
-                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
-                                Spark 20C hadir dengan pembaruan lubang kamera alias punch hole yang terletak
-                                di tengah atas layar. Sebelumnya, Tecno Spark 10C masih menggunakan "poni"
-                                konvensional bergaya ala tetesan air (waterdrop). Berkat punch hole,Tecno Spark
-                                20C bisa dibekali dengan fitur poni dinamis yang mirip dengan fitur Dynamic Island
-                                di iPhone 14 Pro. Poni tersebut diberi nama Dynamic Port dan dapat berubah ukuran
-                                menyesuaikan aktivitas pengguna. Dengan Dynamic Port, lubang punch hole nantinya
-                                akan berubah memanjang kekanan dan kiri ketika menerima notifikasi panggilan masuk,
-                                menunjukkan status baterai, dan sebagainya.
-                            </p>
+                            <h3 class="mb-3"><?= $posts['judul'];?></h3>
+                            <p><?= $posts['body'];?></p>
                         </div>
                     </div>
                 </div>
@@ -151,61 +153,29 @@
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0" style="color: white;">Breaking News</h3>
                     </div>
-                    <div class="d-flex mb-3">
-                        <img src="img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
+                    <?php
+                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+                    FROM posts
+                    JOIN category ON posts.category_id = category.id
+                    JOIN author ON posts.author_id = author.id
+                    ORDER BY publish DESC
+                    LIMIT 5");
+                     foreach ($breakingposts as $Bpost) : 
+                        $textbreaking = explode(' ', $Bpost['body']);
+                        $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
+                    ?>   
+                        <div class="d-flex mb-3">
+                            <img src="img/<?= $Bpost['img'];?>" style="width: 100px; height: 100px; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                <div class="mb-1" style="font-size: 13px;">
+                                    <a href=""><?= $Bpost['nama_category'];?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= $Bpost['publish'];?></span>
+                                </div>
+                                <a class="h6 m-0" href=""><?= $Bpost['judul'];?></a>
                             </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                         </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="img/news-100x100-5.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>   
                 </div>
                 <!-- Popular News End -->
                 <!-- Social Follow Start -->

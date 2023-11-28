@@ -5,11 +5,10 @@
             <div class="col-12 col-md-8">
                 <div class="d-flex justify-content-between">
                     <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                    <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-white text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
                     <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px;">
                         <div class="text-truncate"><a class="text-white" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a></div>
                         <div class="text-truncate"><a class="text-white" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a></div>
-                        <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>
+                        <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>     
                     </div>
                 </div>
             </div>
@@ -26,7 +25,6 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
             <a href="" class="navbar-brand d-none d-lg-block">
-                <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">2Day</span>News</h1>
                 <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">2day</span>news</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -41,7 +39,6 @@
                 </div>
                 <div class="input-group" style="width: 100%; max-width: 300px;">
                     <input type="text" class="form-control" placeholder="search">
-                    <input type="text" class="form-control" placeholder="Search">
                     <div class="input-group-append">
                         <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                     </div>
