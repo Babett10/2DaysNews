@@ -93,7 +93,7 @@
                                     <span>January 01, 2045</span>
                                 </div>
                                 <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem am...</p>
                             </div>
                         </div>
                     </div>
