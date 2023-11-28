@@ -63,7 +63,7 @@
                         <a href="index.php" class="nav-item nav-link active ">Home</a>
                         <a href="category.php" class="nav-item nav-link">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
-                        <a href="login.php" class="nav-item nav-link">Login</a>
+                        <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
                         <input type="text" class="form-control" placeholder="search">
