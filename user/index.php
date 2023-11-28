@@ -1,17 +1,3 @@
-<?php
-// Kelompok 2 - 2DAYNEWS
-// Final Project
-
-require 'php/functions.php';
-
-$posts = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
-FROM posts
-JOIN category ON posts.category_id = category.id
-JOIN author ON posts.author_id = author.id
-ORDER BY posts.id ASC
-LIMIT 10");
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +9,7 @@ LIMIT 10");
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/2daynews.png">
+    <link rel="shortcut icon" href="../img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,10 +19,10 @@ LIMIT 10");
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,7 +35,7 @@ LIMIT 10");
             <div class="col-lg-12">
                 <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
                     <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-700x435-1.jpg" style="object-fit: cover;">
+                        <img class="img-fluid h-100" src="../img/news-700x435-1.jpg" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-1">
                                 <a class="text-white">Sports</a>
@@ -60,7 +46,7 @@ LIMIT 10");
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-700x435-2.jpg" style="object-fit: cover;">
+                        <img class="img-fluid h-100" src="../img/news-700x435-2.jpg" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-1">
                                 <a class="text-white" href="">Technology</a>
@@ -71,7 +57,7 @@ LIMIT 10");
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <img class="img-fluid h-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-1">
                                 <a class="text-white" href="">Technology</a>
@@ -97,28 +83,65 @@ LIMIT 10");
                             <a class="text-white font-weight-medium text-decoration-none" href="all_news.php">View All</a>
                         </div>
                     </div>
-
-                    <?php foreach ($posts as $post) : 
-                        $text = explode(' ', $post['body']);
-                        $textcut = implode(' ', array_slice($text, 0, 20));
-                    ?>
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/<?= $post['img'];?>" style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#"><?= $post['nama_category'];?></a>
+                                    <a href="#">Technology</a>
                                     <span class="px-1">/</span>
-                                    <span><?= $post['publish'];?></span>
+                                    <span>January 01, 2045</span>
                                 </div>
-                                <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul'];?></a>
-                                <p class="m-0"><?php echo $textcut ."..."?></p>
+                                <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="col-lg-6">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid w-100" src="../img/news-500x280-3.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 14px;">
+                                    <a href="#">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid w-100" src="../img/news-500x280-5.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 14px;">
+                                    <a href="#">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid w-100" src="../img/news-500x280-6.jpg" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 14px;">
+                                    <a href="">Technology</a>
+                                    <span class="px-1">/</span>
+                                    <span>January 01, 2045</span>
+                                </div>
+                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- breaking news -->
             <div class="col-lg-4 pt-3 pt-lg-0">
@@ -127,35 +150,56 @@ LIMIT 10");
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0 text-white">Breaking News</h3>
                     </div>
-                    <?php
-                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-                    FROM posts
-                    JOIN category ON posts.category_id = category.id
-                    JOIN author ON posts.author_id = author.id
-                    ORDER BY publish DESC
-                    LIMIT 4");
-                     foreach ($breakingposts as $Bpost) : 
-                        $textbreaking = explode(' ', $Bpost['body']);
-                        $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>   
                     <div class="d-flex mb-3">
-                        <img src="img/<?= $Bpost['img'];?>" style="width: 100px; height: 100px; object-fit: cover;">
+                        <img src="../img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                         <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                             <div class="mb-1" style="font-size: 13px;">
-                                <a href="#"><?= $Bpost['nama_category'];?></a>
+                                <a href="#">Technology</a>
                                 <span class="px-1">/</span>
-                                <span><?= $Bpost['publish'];?></span>
+                                <span>January 01, 2045</span>
                             </div>
-                            <a class="h6 m-0" href="single.php?id=<?= $Bpost['id']?>"><?php echo $textbreakingcut ."..."?></a>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="#">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="#">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Hot News End -->
                 <!-- Category Start -->
                 <div class="pb-3">
                     <div class="bg-dark py-2 px-4 mb-3">
-                        <h3 class="m-0 text-white">Category</h3>
+                        <h3 class="m-0 text-white">Categories</h3>
                     </div>
                     <div class="d-flex mb-2">
                         <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
@@ -217,15 +261,15 @@ LIMIT 10");
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="../mail/jqBootstrapValidation.min.js"></script>
+    <script src="../mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script type="text/javascript">
         window.onload = function() {
             jam();

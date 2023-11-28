@@ -1,18 +1,3 @@
-<?php
-// Kelompok 2 - 2DAYNEWS
-// Final Project
-
-require 'php/functions.php';
-
-$id = $_GET['id'];
-$posts = query("SELECT posts.id, img, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
-FROM posts 
-JOIN category ON posts.category_id = category.id
-JOIN author ON posts.author_id = author.id
-WHERE posts.id = $id")[0];
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +9,7 @@ WHERE posts.id = $id")[0];
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../img/2daynews.png">
+    <link rel="shortcut icon" href="img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,10 +19,10 @@ WHERE posts.id = $id")[0];
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,8 +37,8 @@ WHERE posts.id = $id")[0];
                 <nav class="breadcrumb bg-transparent m-0 p-0">
                     <a class="breadcrumb-item" href="index.php">Home</a>
                     <a class="breadcrumb-item" href="category.php">Category</a>
-                    <a class="breadcrumb-item" href="#"><?= $posts['nama_category'];?></a>
-                    <span class="breadcrumb-item active"><?= $posts['judul'];?></span>
+                    <a class="breadcrumb-item" href="#">Technology</a>
+                    <span class="breadcrumb-item active">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</span>
                 </nav>
             </div>
         </div>
@@ -66,19 +51,32 @@ WHERE posts.id = $id")[0];
             <div class="col-lg-8">
                 <!-- News Detail Start -->
                 <div class="position-relative mb-3">
-                    <img class="img-fluid w-100" src="img/<?= $posts['img'];?>" style="object-fit: cover;">
+                    <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#"><?= $posts['nama_category'];?></a>
+                            <a href="#">Technology</a>
                             <span class="px-1">/</span>
-                            <span ><?= $posts['publish'];?></span>
+                            <span>January 01, 2045</span>
                         </div>
                         <div class="mb-3">
-                            <a><?php echo "By ".$posts['nama_author'];?></a>
+                            <a>By Fahruz</a>
                         </div>
                         <div>
-                            <h3 class="mb-3"><?= $posts['judul'];?></h3>
-                            <p><?= $posts['body'];?></p>
+                            <h3 class="mb-3">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</h3>
+                            <p>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C
+                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi
+                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
+                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
+                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
+                                Spark 20C hadir dengan pembaruan lubang kamera alias punch hole yang terletak
+                                di tengah atas layar. Sebelumnya, Tecno Spark 10C masih menggunakan "poni"
+                                konvensional bergaya ala tetesan air (waterdrop). Berkat punch hole,Tecno Spark
+                                20C bisa dibekali dengan fitur poni dinamis yang mirip dengan fitur Dynamic Island
+                                di iPhone 14 Pro. Poni tersebut diberi nama Dynamic Port dan dapat berubah ukuran
+                                menyesuaikan aktivitas pengguna. Dengan Dynamic Port, lubang punch hole nantinya
+                                akan berubah memanjang kekanan dan kiri ketika menerima notifikasi panggilan masuk,
+                                menunjukkan status baterai, dan sebagainya.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +85,7 @@ WHERE posts.id = $id")[0];
                 <div class="bg-light mb-3" style="padding: 30px;">
                     <h3 class="mb-4">3 Comments</h3>
                     <div class="media mb-4">
-                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                        <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                         <div class="media-body">
                             <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
                             <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
@@ -98,7 +96,7 @@ WHERE posts.id = $id")[0];
                         </div>
                     </div>
                     <div class="media">
-                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                        <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                         <div class="media-body">
                             <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
                             <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
@@ -107,7 +105,7 @@ WHERE posts.id = $id")[0];
                                 consetetur at sit.</p>
                             <button class="btn btn-sm btn-outline-secondary">Reply</button>
                             <div class="media mt-4">
-                                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
                                     <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
                                     <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
@@ -153,29 +151,61 @@ WHERE posts.id = $id")[0];
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0" style="color: white;">Breaking News</h3>
                     </div>
-                    <?php
-                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-                    FROM posts
-                    JOIN category ON posts.category_id = category.id
-                    JOIN author ON posts.author_id = author.id
-                    ORDER BY publish DESC
-                    LIMIT 5");
-                     foreach ($breakingposts as $Bpost) : 
-                        $textbreaking = explode(' ', $Bpost['body']);
-                        $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>   
-                        <div class="d-flex mb-3">
-                            <img src="img/<?= $Bpost['img'];?>" style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                                <div class="mb-1" style="font-size: 13px;">
-                                    <a href=""><?= $Bpost['nama_category'];?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish'];?></span>
-                                </div>
-                                <a class="h6 m-0" href=""><?= $Bpost['judul'];?></a>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
                             </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                         </div>
-                    <?php endforeach; ?>   
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img src="../img/news-100x100-5.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="mb-1" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Popular News End -->
                 <!-- Social Follow Start -->
@@ -226,15 +256,15 @@ WHERE posts.id = $id")[0];
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="../mail/jqBootstrapValidation.min.js"></script>
+    <script src="../mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <script type="text/javascript">
         window.onload = function() {
             jam();
