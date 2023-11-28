@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         header("Location: dashboard/admin.php");
         die;
       }
-      header("Location: index.php");
+      header("Location: user/index.php");
       die;
     }
   }
@@ -58,10 +58,10 @@ if (isset($_POST['submit'])) {
       }
 
       if (hash('sha256', $row['id_user']) == $_SESSION['hash']) {
-        header("Location: index.php");
+        header("Location: user/index.php");
         die;
       }
-      header("Location: index.php");
+      header("Location: user/index.php");
       die;
     }
   }

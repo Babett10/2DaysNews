@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/2daynews.png">
+    <link rel="shortcut icon" href="../img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                     <div class="d-flex mb-3">
-                        <img src="img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
+                        <img src="../img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
                         <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                             <div class="mb-1" style="font-size: 13px;">
                                 <a href="">Technology</a>

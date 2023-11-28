@@ -51,9 +51,9 @@
                             <div class="mb-1">
                                 <a class="text-white" href="">Technology</a>
                                 <span class="px-2 text-white">/</span>
-                                <a class="text-white" href="detail.php">January 01, 2045</a>
+                                <a class="text-white" href="#">January 01, 2045</a>
                             </div>
-                            <a class="h2 m-0 text-white font-weight-bold" href="">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a>
+                            <a class="h2 m-0 text-white font-weight-bold" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a>
                         </div>
                     </div>
                     <div class="position-relative overflow-hidden" style="height: 750px;">
@@ -62,7 +62,7 @@
                             <div class="mb-1">
                                 <a class="text-white" href="">Technology</a>
                                 <span class="px-2 text-white">/</span>
-                                <a class="text-white" href="detail.php">January 01, 2045</a>
+                                <a class="text-white" href="#">January 01, 2045</a>
                             </div>
                             <a class="h2 m-0 text-white font-weight-bold" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
                         </div>
@@ -80,7 +80,7 @@
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
                             <h3 class="text-white m-0">All News</h3>
-                            <a class="text-white font-weight-medium text-decoration-none" href="#">View All</a>
+                            <a class="text-white font-weight-medium text-decoration-none" href="all_news.php">View All</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -93,7 +93,7 @@
                                     <span>January 01, 2045</span>
                                 </div>
                                 <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem am...</p>
+                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                             </div>
                         </div>
                     </div>
@@ -199,14 +199,14 @@
                 <!-- Category Start -->
                 <div class="pb-3">
                     <div class="bg-dark py-2 px-4 mb-3">
-                        <h3 class="m-0 text-white">Categories</h3>
+                        <h3 class="m-0 text-white">Category</h3>
                     </div>
                     <div class="d-flex mb-2">
                         <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sports</a>
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sport</a>
                     </div>
                     <div class="d-flex mb-2">
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sports</a>
+                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sport</a>
                         <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
                     </div>
                     <div class="d-flex mb-2">
