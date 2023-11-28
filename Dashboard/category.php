@@ -4,11 +4,7 @@
 
 require '../php/functions.php';
 
-$posts = query("SELECT posts.id, judul, publish, category.nama_category, author.nama_author
-FROM posts
-JOIN category ON posts.category_id = category.id
-JOIN author ON posts.author_id = author.id
-ORDER BY posts.id ASC");
+$category = query("SELECT id, nama_category FROM category");
 
 session_start();
 
@@ -143,20 +139,17 @@ if (!isset($_SESSION["username"])) {
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="container">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Posts</h1>
+                        <h1 class="h2">Category</h1>
                     </div>
 
-                    <div class="table-responsive col-lg-12">
-                        <a href="../php/posts/create.php" class="btn btn-primary mb-3">Create Posts</a>
+                    <div class="table-responsive col-lg-4">
+                        <a href="../php/category/create.php" class="btn btn-primary mb-3">Create Category</a>
 
-                        <table id="myTable" class="table table-bordered  table-striped table-sm">
+                        <table class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Tittle</th>
-                                    <th scope="col">Publist at</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Author</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -164,17 +157,13 @@ if (!isset($_SESSION["username"])) {
                             <?php $i = 1; ?>
 
                             <tbody>
-                                <?php foreach ($posts as $post) : ?>
+                                <?php foreach ($category as $categories) : ?>
                                     <tr>
                                         <td><?= $i; ?>.</td>
-                                        <td><?= $post['judul']; ?></td>
-                                        <td><?= $post['publish']; ?></td>
-                                        <td><?= $post['nama_category']; ?></td>
-                                        <td><?= $post['nama_author']; ?></td>
+                                        <td><?= $categories['nama_category']; ?></td>
                                         <td>
-                                            <a href="../php/posts/show.php?id=<?= $post['id']; ?>" class="badge bg-info"><span data-feather="eye" style="width: 18px;"></span></a>
-                                            <a href="../php/posts/edit.php?id=<?= $post['id']; ?>" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
-                                            <a href="../php/posts/delete.php?id=<?= $post['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
+                                            <a href="../php/category/edit.php?id=<?= $categories['id']; ?>" class="badge bg-warning"><span data-feather="edit" style="width: 18px;"></span></a>
+                                            <a href="../php/category/delete.php?id=<?= $categories['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -198,11 +187,6 @@ if (!isset($_SESSION["username"])) {
         feather.replace();
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-    </script>
 </body>
 
 </html>

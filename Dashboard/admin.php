@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="category.php">
                                     <svg class="bi">
                                         <use xlink:href="#cart" />
                                     </svg>
@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="author.php">
                                     <svg class="bi">
                                         <use xlink:href="#people" />
                                     </svg>
@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="comment.php">
                                     <svg class="bi">
                                         <use xlink:href="#puzzle" />
                                     </svg>
@@ -114,7 +114,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Welcome back, Admin ?></h1>
+                    <h1 class="h2">Welcome back, Admin</h1>
                 </div>
             </main>
         </div>

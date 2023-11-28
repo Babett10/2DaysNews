@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <title>2DAYNEWS | Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="shortcut icon" href="img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,13 +26,8 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
+    <!-- Header -->
     <?php include 'header.php'; ?>
-    <!-- Topbar End -->
-
-    <!-- Navbar Start -->
-
-    <!-- Navbar End -->
 
     <!-- Main News Slider Start -->
     <div class="container-fluid py-3 px-lg-5 mt-3">
@@ -77,7 +72,6 @@
 
         </div>
     </div>
-    <!-- Main News Slider End -->
     <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5">
         <div class="row">
@@ -85,7 +79,7 @@
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
-                            <h3 class="text-white m-0">Latest</h3>
+                            <h3 class="text-white m-0">All News</h3>
                             <a class="text-white font-weight-medium text-decoration-none" href="#">View All</a>
                         </div>
                     </div>

@@ -1,3 +1,24 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require 'php/functions.php';
+
+if (isset($_POST["signup"])) {
+
+    if (signup($_POST) > 0) {
+        echo "<script>
+                alert('Sign Up Successful');
+                document.location.href = 'login.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Sign Up Failed');
+              </script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +27,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>2DayNews-Sign-Up</title>
+    <title>2DAYNEWS | Sign Up</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -17,7 +38,7 @@
     <meta name="generator" content="Themefisher Small Apps Template v1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="img/2daynews.png">
 
     <!-- PLUGINS CSS STYLE -->
     <link rel="stylesheet" href="login/plugins/bootstrap/bootstrap.min.css">
@@ -46,6 +67,10 @@
             height: 100%;
             backdrop-filter: blur(5px);
         }
+
+        .btn a:hover {
+            color: white;
+        }
     </style>
 </head>
 
@@ -58,19 +83,23 @@
                     <div class="block bg-white" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
                         <!-- Content -->
                         <div class="content text-center">
-                            <a href=""><img src="login/logo.jpg" width="230px" alt=""></a>
+                            <img src="login/logo.jpg" width="230px" alt="">
                             <div class="title-text">
                                 <h3><b>Sign Up </b></h3>
                             </div>
-                            <form action="#">
+                            <form action="" method="post">
+                                <?php if (isset($error)) : ?>
+                                    <p style="color: red; font-style: italic;">Username atau Password salah</p>
+                                <?php endif; ?>
+
                                 <!-- Username -->
-                                <input class="form-control main" type="text" placeholder="Username" required>
-                                <!-- Email -->
-                                <input class="form-control main" type="email" placeholder="Password" required>
+                                <input class="form-control main" type="text" id="username" name="username" placeholder="Username" required>
                                 <!-- Password -->
-                                <input class="form-control main" type="password" placeholder="Konfirmasi Password" required>
+                                <input class="form-control main" type="password" id="password" name="password" placeholder="Password" required>
+                                <!-- Konfirmasi Password -->
+                                <input class="form-control main" type="password" id="password" name="password" placeholder="Konfirmasi Password" required>
                                 <!-- Submit Button -->
-                                <button class="btn btn-main-sm"><a href="Dashboard/admin.php">Sign Up</a></button>
+                                <button class="btn btn-main-sm" type="submit" name="signup">Sign Up</button>
                             </form>
                             <div class="new-acount">
                                 <p>By clicking “Sign Up” I agree to <a href="privacy-policy.html">Terms of Conditions.</a></p>
