@@ -162,7 +162,6 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
                 <input class="form-control main box" type="password" id="password" name="password" placeholder="Password" required>
                 <!-- Submit Button -->
                 <button class="btn btn-main-sm box" type="submit" name="submit">Sign In</button>
-                <button class="btn btn-main-sm box" type="submit"><a href="index.php">Cancel</a></button>
               </form>
               <div class="new-acount">
                 <a href="#">Forget your password?</a>
