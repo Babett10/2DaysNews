@@ -249,16 +249,16 @@
                         <h3 class="m-0 text-white">Category</h3>
                     </div>
                     <div class="d-flex mb-2">
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sport</a>
+                        <a href="entertainment_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Entertainment</a>
+                        <a href="sport_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sport</a>
                     </div>
                     <div class="d-flex mb-2">
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sport</a>
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
+                        <a href="e-sport_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sport</a>
+                        <a href="politics_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
                     </div>
                     <div class="d-flex mb-2">
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Film</a>
-                        <a href="" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Otomotif</a>
+                        <a href="film_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Film</a>
+                        <a href="otomotif_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Otomotif</a>
                     </div>
                 </div>
                 <!-- Category End -->

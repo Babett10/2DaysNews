@@ -80,7 +80,7 @@
         <div class="row">
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Politik</h3>
+                    <h3 class="m-0" style="color: white;">Entertainment</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="#" style="color: white;">View All</a>
+                    <a href="entertainment_news.php" style="color: white;">View All</a>
                 </div>
             </div>
             <div class="col-lg-6 py-3">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="#" style="color: white;">View All</a>
+                    <a href="sport_news.php" style="color: white;">View All</a>
                 </div>
             </div>
         </div>
