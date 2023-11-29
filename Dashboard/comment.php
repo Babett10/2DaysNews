@@ -36,7 +36,10 @@ if (!isset($_SESSION["username"])) {
     <!-- Css Dashboard -->
     <link href="dashboard.css" rel="stylesheet">
 
-    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/2daynews.png">
+
+    <title>2DAYNEWS | Dashboard</title>
 </head>
 
 <body>

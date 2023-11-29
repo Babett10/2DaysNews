@@ -145,24 +145,24 @@ LIMIT 10");
                         </div>
                     </div>
 
-                    <?php foreach ($posts as $post) : 
+                    <?php foreach ($posts as $post) :
                         $text = explode(' ', $post['body']);
                         $textcut = implode(' ', array_slice($text, 0, 20));
                     ?>
-                    <div class="col-lg-6">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/<?= $post['img'];?>" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#"><?= $post['nama_category'];?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= $post['publish'];?></span>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <div class="overlay position-relative bg-light">
+                                    <div class="mb-2" style="font-size: 14px;">
+                                        <a href="#"><?= $post['nama_category']; ?></a>
+                                        <span class="px-1">/</span>
+                                        <span><?= $post['publish']; ?></span>
+                                    </div>
+                                    <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
+                                    <p class="m-0"><?php echo $textcut . "..." ?></p>
                                 </div>
-                                <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul'];?></a>
-                                <p class="m-0"><?php echo $textcut ."..."?></p>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
 
@@ -182,23 +182,23 @@ LIMIT 10");
                     JOIN author ON posts.author_id = author.id
                     ORDER BY publish DESC
                     LIMIT 4");
-                     foreach ($breakingposts as $Bpost) : 
+                    foreach ($breakingposts as $Bpost) :
                         $textbreaking = explode(' ', $Bpost['body']);
                         $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>   
-                    <div class="d-flex mb-3">
-                        <img src="img/<?= $Bpost['img'];?>" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="#"><?= $Bpost['nama_category'];?></a>
-                                <span class="px-1">/</span>
-                                <span><?= $Bpost['publish'];?></span>
+                    ?>
+                        <div class="d-flex mb-3">
+                            <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                <div class="mb-1" style="font-size: 13px;">
+                                    <a href="#"><?= $Bpost['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= $Bpost['publish']; ?></span>
+                                </div>
+                                <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?php echo $textbreakingcut . "..." ?></a>
                             </div>
-                            <a class="h6 m-0" href="single.php?id=<?= $Bpost['id']?>"><?php echo $textbreakingcut ."..."?></a>
                         </div>
-                    </div>
                     <?php endforeach; ?>
-                    
+
                 </div>
                 <!-- Hot News End -->
                 <!-- Category Start -->

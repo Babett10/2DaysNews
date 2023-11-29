@@ -113,19 +113,19 @@ WHERE posts.id = $id")[0];
             <div class="col-lg-8">
                 <!-- News Detail Start -->
                 <div class="position-relative mb-3">
-                <img class="img-fluid w-100" src="img/<?= $posts['img'];?>" style="object-fit: cover;">
+                    <img class="img-fluid w-100" src="img/<?= $posts['img']; ?>" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#"><?= $posts['nama_category'];?></a>
+                            <a href="#"><?= $posts['nama_category']; ?></a>
                             <span class="px-1">/</span>
-                            <span ><?= $posts['publish'];?></span>
+                            <span><?= $posts['publish']; ?></span>
                         </div>
                         <div class="mb-3">
-                            <a><?php echo "By ".$posts['nama_author'];?></a>
+                            <a><?php echo "By " . $posts['nama_author']; ?></a>
                         </div>
                         <div>
-                            <h3 class="mb-3"><?= $posts['judul'];?></h3>
-                            <p><?= $posts['body'];?></p>
+                            <h3 class="mb-3"><?= $posts['judul']; ?></h3>
+                            <p style="text-align: justify;"><?= nl2br($posts['body']); ?></p>
                         </div>
                     </div>
                 </div>
@@ -207,22 +207,22 @@ WHERE posts.id = $id")[0];
                     JOIN author ON posts.author_id = author.id
                     ORDER BY publish DESC
                     LIMIT 5");
-                     foreach ($breakingposts as $Bpost) : 
+                    foreach ($breakingposts as $Bpost) :
                         $textbreaking = explode(' ', $Bpost['body']);
                         $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>   
+                    ?>
                         <div class="d-flex mb-3">
-                            <img src="img/<?= $Bpost['img'];?>" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href=""><?= $Bpost['nama_category'];?></a>
+                                    <a href=""><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish'];?></span>
+                                    <span><?= $Bpost['publish']; ?></span>
                                 </div>
-                                <a class="h6 m-0" href="single.php?id=<?= $Bpost['id']?>"><?= $Bpost['judul'];?></a>
+                                <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?= $Bpost['judul']; ?></a>
                             </div>
                         </div>
-                    <?php endforeach; ?>   
+                    <?php endforeach; ?>
                 </div>
                 <!-- Popular News End -->
                 <!-- Social Follow Start -->

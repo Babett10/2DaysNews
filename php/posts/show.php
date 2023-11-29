@@ -45,9 +45,9 @@ $posts = query("SELECT posts.id, img, judul, body, publish, category.nama_catego
     <link href="../../css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-info">
     <div class="container">
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="overlay position-relative bg-light">
                     <div class="">
@@ -59,9 +59,9 @@ $posts = query("SELECT posts.id, img, judul, body, publish, category.nama_catego
                     <div class="mb-3">
                         <a>By <?= $posts['nama_author']; ?></a>
                     </div>
-                    <div>
+                    <div class="mb-3">
                         <h3 class="mb-3"><?= $posts['judul'] ?></h3>
-                        <p><?= $posts['body'] ?></p>
+                        <p style="text-align: justify;"><?= nl2br($posts['body']); ?></p>
                     </div>
 
                     <a href="../../dashboard/posts.php">Back to Dashboard</a>

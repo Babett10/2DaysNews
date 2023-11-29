@@ -40,7 +40,10 @@ if (!isset($_SESSION["username"])) {
     <!-- Css Dashboard -->
     <link href="dashboard.css" rel="stylesheet">
 
-    <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/2daynews.png">
+
+    <title>2DAYNEWS | Dashboard</title>
 </head>
 
 <body>
@@ -153,7 +156,7 @@ if (!isset($_SESSION["username"])) {
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Tittle</th>
+                                    <th scope="col" width="350px">Tittle</th>
                                     <th scope="col">Publist at</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Author</th>
