@@ -1,3 +1,15 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require 'php/functions.php';
+
+$posts = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY posts.id ASC");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,63 +98,27 @@
                             <h3 class="text-white m-0">All News</h3>
                         </div>
                     </div>
+
+                    <?php foreach ($posts as $post) : 
+                        $text = explode(' ', $post['body']);
+                        $textcut = implode(' ', array_slice($text, 0, 20));
+                    ?>
                     <div class="col-lg-4">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <img class="img-fluid w-100" src="img/<?= $post['img'];?>" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
+                                    <a href="#"><?= $post['nama_category'];?></a>
                                     <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                                    <span><?= $post['publish'];?></span>
                                 </div>
-                                <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
+                                <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul'];?></a>
+                                <p class="m-0"><?php echo $textcut ."..."?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/news-500x280-5.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                    
             </div>
         </div>
     <!-- News With Sidebar End -->
