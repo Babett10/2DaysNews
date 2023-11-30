@@ -117,10 +117,11 @@ ORDER BY posts.id ASC");
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                    
+                    <?php endforeach; ?>    
+                </div>
             </div>
         </div>
+    </div>
     <!-- News With Sidebar End -->
 
     <!-- Footer Start -->

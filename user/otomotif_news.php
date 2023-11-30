@@ -145,6 +145,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <!-- News With Sidebar End -->
 
     <!-- Footer Start -->

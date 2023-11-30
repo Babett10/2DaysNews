@@ -145,10 +145,11 @@
                 </div>
             </div>
         </div>
-        <!-- News With Sidebar End -->
+    </div>
+    <!-- News With Sidebar End -->
 
-        <!-- Footer Start -->
-        <footer>    
+    <!-- Footer Start -->
+    <footer>    
     <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-5">
