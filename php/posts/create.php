@@ -63,7 +63,7 @@ if (!isset($_SESSION["username"])) {
                         <label for="judul">Title</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="body" id="body" class="materialize-textarea"></textarea>
+                        <textarea name="body" id="body" rows="20" style="height: 7rem;" class="materialize-textarea"></textarea>
                         <label for="body">Body</label>
                     </div>
                     <div class="input-field">
@@ -96,8 +96,8 @@ if (!isset($_SESSION["username"])) {
                         </div>
                         <img src="../../img/nophoto.jpg" width="120px" style="display: block;" class="img-preview">
                     </div>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="add_posts">Add Data!</button>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit">
+                    <button class="waves-effect waves-light green darken-4 btn" type="submit" name="add_posts">Add Data!</button>
+                    <button class="waves-effect waves-light blue darken-4 btn" type="submit">
                         <a href="../../dashboard/posts.php" style='text-decoration: none; color: white;'>Back</a>
                     </button>
                 </div>

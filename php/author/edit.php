@@ -63,8 +63,8 @@ if (!isset($_SESSION["username"])) {
                         <input type="text" name="nama_author" id="nama_author" required value="<?= $author["nama_author"]; ?>">
                         <label for="nama_author">Author</label>
                     </div>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="update_author">Update Data!</button>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit">
+                    <button class="waves-effect waves-light green darken-4 btn" type="submit" name="update_author">Update Data!</button>
+                    <button class="waves-effect waves-light blue darken-4 btn" type="submit">
                         <a href="../../dashboard/author.php" style='text-decoration: none; color: white;'>Back</a>
                     </button>
                 </div>

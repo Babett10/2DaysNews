@@ -1,3 +1,14 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require 'php/functions.php';
+
+$sports = query("SELECT posts.id, judul, body, img, publish, category.nama_category FROM posts JOIN category ON posts.category_id = category.id WHERE nama_category = 'Sport' LIMIT 3");
+$esports = query("SELECT posts.id, judul, body, img, publish, category.nama_category FROM posts JOIN category ON posts.category_id = category.id WHERE nama_category = 'E-Sport' LIMIT 3");
+$film = query("SELECT posts.id, judul, body, img, publish, category.nama_category FROM posts JOIN category ON posts.category_id = category.id WHERE nama_category = 'Film' LIMIT 3");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,30 +137,78 @@
                     <h3 class="m-0" style="color: white;">Sport</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <?php foreach ($sports as $sport) :
+                    ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="img/<?= $sport['img']; ?>" style="width: 200px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href=""><?= $sport['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($sport['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $sport['id']; ?>"><?= $sport['judul']; ?></a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
+                    <a href="sport_news.php" style="color: white;">View All</a>
+                </div>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">E-Sport</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <?php foreach ($esports as $esport) :
+                    ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="img/<?= $esport['img']; ?>" style="width: 200px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href=""><?= $esport['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($esport['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $esport['id']; ?>"><?= $esport['judul']; ?></a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
+                    <a href="sport_news.php" style="color: white;">View All</a>
+                </div>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">Politic</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/news-500x280-4.jpg" style="object-fit: cover;">
+                        <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2023</span>
+                            </div>
+                            <a class="h4 m-0" href="">Samett amet ipsum loream</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
                         <div class="overlay position-relative bg-light">
                             <div class="mb-2" style="font-size: 13px;">
                                 <a href="">Technology</a>
                                 <span class="px-1">/</span>
                                 <span>January 01, 2045</span>
                             </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
                         </div>
                     </div>
                     <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/news-500x280-5.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                        </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="img/news-500x280-6.jpg" style="object-fit: cover;">
+                        <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
                         <div class="overlay position-relative bg-light">
                             <div class="mb-2" style="font-size: 13px;">
                                 <a href="">Technology</a>
@@ -161,7 +220,73 @@
                     </div>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
+                    <a href="entertainment_news.php" style="color: white;">View All</a>
+                </div>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">Film</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <?php foreach ($film as $movie) : ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="img/<?= $movie['img']; ?>" style="width: 200px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href=""><?= $movie['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($movie['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $movie['id']; ?>"><?= $movie['judul']; ?></a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
                     <a href="sport_news.php" style="color: white;">View All</a>
+                </div>
+            </div>
+            <div class="col-lg-6 py-3">
+                <div class="bg-dark py-2 px-4 mb-3">
+                    <h3 class="m-0" style="color: white;">Otomotif</h3>
+                </div>
+                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2023</span>
+                            </div>
+                            <a class="h4 m-0" href="">Samett amet ipsum loream</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-2.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <img class="img-fluid w-100" src="img/news-500x280-3.jpg" style="object-fit: cover;">
+                        <div class="overlay position-relative bg-light">
+                            <div class="mb-2" style="font-size: 13px;">
+                                <a href="">Technology</a>
+                                <span class="px-1">/</span>
+                                <span>January 01, 2045</span>
+                            </div>
+                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
+                    <a href="entertainment_news.php" style="color: white;">View All</a>
                 </div>
             </div>
         </div>
@@ -211,11 +336,10 @@
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>
             </div>
@@ -225,7 +349,7 @@
                 &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
             </p>
         </div>
     </footer>

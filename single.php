@@ -10,8 +10,8 @@ FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 WHERE posts.id = $id")[0];
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,8 +99,8 @@ WHERE posts.id = $id")[0];
                 <nav class="breadcrumb bg-transparent m-0 p-0">
                     <a class="breadcrumb-item" href="index.php">Home</a>
                     <a class="breadcrumb-item" href="category.php">Category</a>
-                    <a class="breadcrumb-item" href="#">Technology</a>
-                    <span class="breadcrumb-item active">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</span>
+                    <a class="breadcrumb-item" href="<?= $posts['nama_category'] ?>_news.php"><?= $posts['nama_category'] ?></a>
+                    <span class="breadcrumb-item active"><?= $posts['judul'] ?></span>
                 </nav>
             </div>
         </div>
@@ -168,29 +168,6 @@ WHERE posts.id = $id")[0];
                     </div>
                 </div>
                 <!-- Comment List End -->
-
-                <!-- Comment Form Start -->
-                <div class="bg-light mb-3" style="padding: 30px;">
-                    <h3 class="mb-4">Leave a comment</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group mb-0">
-                            <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                        </div>
-                    </form>
-                </div>
-                <!-- Comment Form End -->
             </div>
 
             <!-- popular news -->

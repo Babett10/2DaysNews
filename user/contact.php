@@ -1,3 +1,15 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -168,27 +180,27 @@
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Media Partner</h4>
                     <div class="d-flex flex-wrap m-n1">
-                    <a><img src="../img/detik.png" alt="1" style="margin:5px;"></a>
-                    <a><img src="../img/kompas.png" alt="2" style="margin:5px;"></a>
-                    <a><img src="../img/liputan6.png" alt="3" style="margin:5px;"></a>
-                    <a><img src="../img/cnn.png" alt="4" style="margin:5px;"></a>
-                    <a><img src="../img/tribun.png" alt="5" style="margin:5px;"></a>
-                    <a><img src="../img/cnbc.png" alt="6" style="margin:5px;"></a>
-                    <a><img src="../img/bola1.png" alt="14" style="margin:5px;"></a>
-                    <a><img src="../img/bola.png" alt="7" style="margin:5px;"></a>
-                    <a><img src="../img/goal.png" alt="8" style="margin:5px;"></a>
-                    <a><img src="../img/tempo.png" alt="9" style="margin:5px;"></a>
-                    <a><img src="../img/times.png" alt="10" style="margin:5px;"></a>
-                    <a><img src="../img/jpnn.png" alt="11" style="margin:5px;"></a>
-                    <a><img src="../img/jawapos.png" alt="12" style="margin:5px;"></a>
-                    <a><img src="../img/okzone.png" alt="13" style="margin:5px;"></a>
-                    <a><img src="../img/suara.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/kumparan.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/sindonews.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/idn.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/INews.png" alt="14" style="margin:5px;"></a> 
-                    <a><img src="../img/merdeka.png" alt="14" style="margin:5px;"></a>     
-                </div>
+                        <a><img src="../img/detik.png" alt="1" style="margin:5px;"></a>
+                        <a><img src="../img/kompas.png" alt="2" style="margin:5px;"></a>
+                        <a><img src="../img/liputan6.png" alt="3" style="margin:5px;"></a>
+                        <a><img src="../img/cnn.png" alt="4" style="margin:5px;"></a>
+                        <a><img src="../img/tribun.png" alt="5" style="margin:5px;"></a>
+                        <a><img src="../img/cnbc.png" alt="6" style="margin:5px;"></a>
+                        <a><img src="../img/bola1.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/bola.png" alt="7" style="margin:5px;"></a>
+                        <a><img src="../img/goal.png" alt="8" style="margin:5px;"></a>
+                        <a><img src="../img/tempo.png" alt="9" style="margin:5px;"></a>
+                        <a><img src="../img/times.png" alt="10" style="margin:5px;"></a>
+                        <a><img src="../img/jpnn.png" alt="11" style="margin:5px;"></a>
+                        <a><img src="../img/jawapos.png" alt="12" style="margin:5px;"></a>
+                        <a><img src="../img/okzone.png" alt="13" style="margin:5px;"></a>
+                        <a><img src="../img/suara.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/kumparan.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/sindonews.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/idn.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/INews.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/merdeka.png" alt="14" style="margin:5px;"></a>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>

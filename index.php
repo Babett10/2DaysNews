@@ -130,9 +130,9 @@ LIMIT 10");
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
     <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5">
         <div class="row">
@@ -151,12 +151,12 @@ LIMIT 10");
                     ?>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <img class="img-fluid w-100" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
                                         <a href="#"><?= $post['nama_category']; ?></a>
                                         <span class="px-1">/</span>
-                                        <span><?= $post['publish']; ?></span>
+                                        <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
                                     </div>
                                     <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
                                     <p class="m-0"><?php echo $textcut . "..." ?></p>
@@ -165,7 +165,6 @@ LIMIT 10");
                         </div>
                     <?php endforeach; ?>
                 </div>
-
             </div>
             <!-- breaking news -->
             <div class="col-lg-4 pt-3 pt-lg-0">
@@ -192,7 +191,7 @@ LIMIT 10");
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a href="#"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish']; ?></span>
+                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
                                 </div>
                                 <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?php echo $textbreakingcut . "..." ?></a>
                             </div>
@@ -212,7 +211,7 @@ LIMIT 10");
                     </div>
                     <div class="d-flex mb-2">
                         <a href="e-sport_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sport</a>
-                        <a href="politics_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
+                        <a href="politics_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politic</a>
                     </div>
                     <div class="d-flex mb-2">
                         <a href="film_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Film</a>
@@ -301,11 +300,10 @@ LIMIT 10");
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>
             </div>
@@ -315,7 +313,7 @@ LIMIT 10");
                 &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
             </p>
         </div>
     </footer>
