@@ -63,8 +63,8 @@ if (!isset($_SESSION["username"])) {
                         <input type="text" name="nama_category" id="nama_category" required value="<?= $category["nama_category"]; ?>">
                         <label for="nama_category">Category</label>
                     </div>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="update_category">Update Data!</button>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit">
+                    <button class="waves-effect waves-light green darken-4 btn" type="submit" name="update_category">Update Data!</button>
+                    <button class="waves-effect waves-light blue darken-4 btn" type="submit">
                         <a href="../../dashboard/category.php" style='text-decoration: none; color: white;'>Back</a>
                     </button>
                 </div>
