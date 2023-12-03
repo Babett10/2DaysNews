@@ -1,3 +1,17 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require '../php/functions.php';
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

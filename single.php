@@ -123,9 +123,9 @@ LIMIT 4");
                     <img class="img-fluid w-100" src="img/<?= $posts['img']; ?>" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#"><?= $posts['nama_category']; ?></a>
+                            <a href="<?= $posts['nama_category']; ?>_news.php"><?= $posts['nama_category']; ?></a>
                             <span class="px-1">/</span>
-                            <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
+                            <span><?= date("F d, Y", strtotime($posts['publish'])); ?></span>
                         </div>
                         <div class="mb-3">
                             <a><?php echo "By " . $posts['nama_author']; ?></a>
@@ -181,24 +181,22 @@ LIMIT 4");
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0" style="color: white;">Breaking News</h3>
                     </div>
+
                     <?php
                     $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
                     FROM posts
                     JOIN category ON posts.category_id = category.id
-                    JOIN author ON posts.author_id = author.id
                     ORDER BY publish DESC
                     LIMIT 5");
-                    foreach ($breakingposts as $Bpost) :
-                        $textbreaking = explode(' ', $Bpost['body']);
-                        $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>
+
+                    foreach ($breakingposts as $Bpost) : ?>
                         <div class="d-flex mb-3">
                             <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href=""><?= $Bpost['nama_category']; ?></a>
+                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish']; ?></span>
+                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
                                 </div>
                                 <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?= $Bpost['judul']; ?></a>
                             </div>
@@ -240,10 +238,8 @@ LIMIT 4");
             </div>
         </div>
     </div>
-    </div>
     <!-- News With Sidebar End -->
 
-    <!-- Footer Start -->
     <!-- Footer Start -->
     <footer>
         <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">

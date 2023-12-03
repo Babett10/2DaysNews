@@ -138,10 +138,10 @@ LIMIT 4");
                     ?>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <img class="img-fluid" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
-                                        <a href="#"><?= $post['nama_category']; ?></a>
+                                        <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
                                         <span class="px-1">/</span>
                                         <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
                                     </div>
@@ -152,7 +152,6 @@ LIMIT 4");
                         </div>
                     <?php endforeach; ?>
                 </div>
-
             </div>
             <!-- breaking news -->
             <div class="col-lg-4 pt-3 pt-lg-0">
@@ -170,7 +169,7 @@ LIMIT 4");
                             <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="#"><?= $Bpost['nama_category']; ?></a>
+                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
                                 </div>
@@ -178,7 +177,6 @@ LIMIT 4");
                             </div>
                         </div>
                     <?php endforeach; ?>
-
                 </div>
                 <!-- Hot News End -->
                 <!-- Category Start -->
