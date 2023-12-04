@@ -125,7 +125,7 @@ WHERE posts.id = $id")[0];
                         </div>
                         <div>
                             <h3 class="mb-3"><?= $posts['judul']; ?></h3>
-                            <p style="text-align: justify;"><?= nl2br($posts['body']); ?></p>
+                            <p style="text-align: justify;"><b>2DayNews</b> - <?= nl2br($posts['body']); ?></p>
                         </div>
                     </div>
                 </div>
