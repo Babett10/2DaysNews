@@ -11,7 +11,14 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 WHERE posts.id = $id")[0];
 
+$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY publish DESC
+LIMIT 4");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +30,7 @@ WHERE posts.id = $id")[0];
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../img/2daynews.png">
+    <link rel="shortcut icon" href="img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,10 +55,10 @@ WHERE posts.id = $id")[0];
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px;">
-                            <div class="text-truncate"><a class="text-white" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                            <?php foreach ($breakingposts as $Bpost) : ?>
+                                <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -99,8 +106,8 @@ WHERE posts.id = $id")[0];
                 <nav class="breadcrumb bg-transparent m-0 p-0">
                     <a class="breadcrumb-item" href="index.php">Home</a>
                     <a class="breadcrumb-item" href="category.php">Category</a>
-                    <a class="breadcrumb-item" href="#">Technology</a>
-                    <span class="breadcrumb-item active">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</span>
+                    <a class="breadcrumb-item" href="<?= $posts['nama_category']; ?>_news.php"><?= $posts['nama_category']; ?></a>
+                    <span class="breadcrumb-item active"><?= $posts['judul']; ?></span>
                 </nav>
             </div>
         </div>
@@ -116,9 +123,9 @@ WHERE posts.id = $id")[0];
                     <img class="img-fluid w-100" src="img/<?= $posts['img']; ?>" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#"><?= $posts['nama_category']; ?></a>
+                            <a href="<?= $posts['nama_category']; ?>_news.php"><?= $posts['nama_category']; ?></a>
                             <span class="px-1">/</span>
-                            <span><?= $posts['publish']; ?></span>
+                            <span><?= date("F d, Y", strtotime($posts['publish'])); ?></span>
                         </div>
                         <div class="mb-3">
                             <a><?php echo "By " . $posts['nama_author']; ?></a>
@@ -141,7 +148,6 @@ WHERE posts.id = $id")[0];
                                 accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                 Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
                                 consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
                         </div>
                     </div>
                     <div class="media">
@@ -152,7 +158,6 @@ WHERE posts.id = $id")[0];
                                 accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
                                 Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
                                 consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
                             <div class="media mt-4">
                                 <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
@@ -161,36 +166,12 @@ WHERE posts.id = $id")[0];
                                         labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
                                         eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
                                         ipsum diam tempor consetetur at sit.</p>
-                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Comment List End -->
-
-                <!-- Comment Form Start -->
-                <div class="bg-light mb-3" style="padding: 30px;">
-                    <h3 class="mb-4">Leave a comment</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group mb-0">
-                            <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                        </div>
-                    </form>
-                </div>
-                <!-- Comment Form End -->
             </div>
 
             <!-- popular news -->
@@ -200,24 +181,22 @@ WHERE posts.id = $id")[0];
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0" style="color: white;">Breaking News</h3>
                     </div>
+
                     <?php
                     $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
                     FROM posts
                     JOIN category ON posts.category_id = category.id
-                    JOIN author ON posts.author_id = author.id
                     ORDER BY publish DESC
                     LIMIT 5");
-                    foreach ($breakingposts as $Bpost) :
-                        $textbreaking = explode(' ', $Bpost['body']);
-                        $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
-                    ?>
+
+                    foreach ($breakingposts as $Bpost) : ?>
                         <div class="d-flex mb-3">
                             <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href=""><?= $Bpost['nama_category']; ?></a>
+                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish']; ?></span>
+                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
                                 </div>
                                 <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?= $Bpost['judul']; ?></a>
                             </div>
@@ -259,10 +238,8 @@ WHERE posts.id = $id")[0];
             </div>
         </div>
     </div>
-    </div>
     <!-- News With Sidebar End -->
 
-    <!-- Footer Start -->
     <!-- Footer Start -->
     <footer>
         <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
@@ -308,11 +285,10 @@ WHERE posts.id = $id")[0];
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>
             </div>
@@ -322,7 +298,7 @@ WHERE posts.id = $id")[0];
                 &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
             </p>
         </div>
     </footer>

@@ -1,3 +1,31 @@
+<?php
+// Kelompok 2 - 2DAYNEWS
+// Final Project
+
+require '../php/functions.php';
+
+$id = $_GET['id'];
+$posts = query("SELECT posts.id, img, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
+FROM posts 
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+WHERE posts.id = $id")[0];
+
+$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY publish DESC
+LIMIT 4");
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +37,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/2daynews.png">
+    <link rel="shortcut icon" href="../img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,10 +61,10 @@
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px;">
-                            <div class="text-truncate"><a class="text-white" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                            <?php foreach ($breakingposts as $Bpost) : ?>
+                                <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -63,7 +91,7 @@
                         <a href="index.php" class="nav-item nav-link active ">Home</a>
                         <a href="category.php" class="nav-item nav-link">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
-                        <a href="login.php" class="nav-item nav-link">Login</a>
+                        <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
                         <input type="text" class="form-control" placeholder="search">
@@ -84,8 +112,8 @@
                 <nav class="breadcrumb bg-transparent m-0 p-0">
                     <a class="breadcrumb-item" href="index.php">Home</a>
                     <a class="breadcrumb-item" href="category.php">Category</a>
-                    <a class="breadcrumb-item" href="#">Technology</a>
-                    <span class="breadcrumb-item active">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</span>
+                    <a class="breadcrumb-item" href="<?= $posts['nama_category']; ?>_news.php"><?= $posts['nama_category']; ?></a>
+                    <span class="breadcrumb-item active"><?= $posts['judul']; ?></span>
                 </nav>
             </div>
         </div>
@@ -98,32 +126,19 @@
             <div class="col-lg-8">
                 <!-- News Detail Start -->
                 <div class="position-relative mb-3">
-                    <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
+                    <img class="img-fluid w-100" src="../img/<?= $posts['img']; ?>" style="object-fit: cover;">
                     <div class="overlay position-relative bg-light">
                         <div class="mb-3">
-                            <a href="#">Technology</a>
+                            <a href="<?= $posts['nama_category']; ?>_news.php"><?= $posts['nama_category']; ?></a>
                             <span class="px-1">/</span>
-                            <span>January 01, 2045</span>
+                            <span><?= date("F d, Y", strtotime($posts['publish'])); ?></span>
                         </div>
                         <div class="mb-3">
-                            <a>By Fahruz</a>
+                            <a><?php echo "By " . $posts['nama_author']; ?></a>
                         </div>
                         <div>
-                            <h3 class="mb-3">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</h3>
-                            <p>Tecno Spark 20C Rilis dengan Fitur "Dynamic Island"ala iPhone Tecno Spark 20C
-                                adalah HP kelas menengah baru yang dirilis.Produsen smartphone Tecno resmi
-                                meluncurkan ponsel murah (entry-level) terbarunya di pasar global yaitu Tecno
-                                Spark 20C. Sesuai namanya, ponsel ni merupakan penerus dari Tecno Spark 10C
-                                yang diperkenalkan sekitar Maret lalu.Sebagai generasi yang lebih anyar, Tecno
-                                Spark 20C hadir dengan pembaruan lubang kamera alias punch hole yang terletak
-                                di tengah atas layar. Sebelumnya, Tecno Spark 10C masih menggunakan "poni"
-                                konvensional bergaya ala tetesan air (waterdrop). Berkat punch hole,Tecno Spark
-                                20C bisa dibekali dengan fitur poni dinamis yang mirip dengan fitur Dynamic Island
-                                di iPhone 14 Pro. Poni tersebut diberi nama Dynamic Port dan dapat berubah ukuran
-                                menyesuaikan aktivitas pengguna. Dengan Dynamic Port, lubang punch hole nantinya
-                                akan berubah memanjang kekanan dan kiri ketika menerima notifikasi panggilan masuk,
-                                menunjukkan status baterai, dan sebagainya.
-                            </p>
+                            <h3 class="mb-3"><?= $posts['judul']; ?></h3>
+                            <p style="text-align: justify;"><?= nl2br($posts['body']); ?></p>
                         </div>
                     </div>
                 </div>
@@ -198,61 +213,27 @@
                     <div class="bg-dark py-2 px-4 mb-3">
                         <h3 class="m-0" style="color: white;">Breaking News</h3>
                     </div>
-                    <div class="d-flex mb-3">
-                        <img src="../img/news-100x100-1.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
+
+                    <?php
+                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+                    FROM posts
+                    JOIN category ON posts.category_id = category.id
+                    ORDER BY publish DESC
+                    LIMIT 5");
+
+                    foreach ($breakingposts as $Bpost) : ?>
+                        <div class="d-flex mb-3">
+                            <img src="../img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                                <div class="mb-1" style="font-size: 13px;">
+                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
+                                </div>
+                                <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?= $Bpost['judul']; ?></a>
                             </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                         </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="../img/news-100x100-2.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="../img/news-100x100-3.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="../img/news-100x100-4.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-3">
-                        <img src="../img/news-100x100-5.jpg" style="width: 100px; height: 100px; object-fit: cover;">
-                        <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <!-- Popular News End -->
                 <!-- Social Follow Start -->
@@ -293,68 +274,67 @@
     <!-- News With Sidebar End -->
 
     <!-- Footer Start -->
-    <footer>    
-    <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.php" class="navbar-brand">
-                    <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">2Day</span>News</h1>
-                </a>
-                <p>Dapatkan informasi berita terupdate dan terpopular serta akurat hanya disini</p>
-                <div class="d-flex justify-content-start mt-4">
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-youtube"></i></a>
+    <footer>
+        <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <a href="index.php" class="navbar-brand">
+                        <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">2Day</span>News</h1>
+                    </a>
+                    <p>Dapatkan informasi berita terupdate dan terpopular serta akurat hanya disini</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 ml-auto">
-                <h4 class="font-weight-bold mb-4">Media Partner</h4>
-                <div class="d-flex flex-wrap m-n1">
-                    <a><img src="../img/detik.png" alt="1" style="margin:5px;"></a>
-                    <a><img src="../img/kompas.png" alt="2" style="margin:5px;"></a>
-                    <a><img src="../img/liputan6.png" alt="3" style="margin:5px;"></a>
-                    <a><img src="../img/cnn.png" alt="4" style="margin:5px;"></a>
-                    <a><img src="../img/tribun.png" alt="5" style="margin:5px;"></a>
-                    <a><img src="../img/cnbc.png" alt="6" style="margin:5px;"></a>
-                    <a><img src="../img/bola1.png" alt="14" style="margin:5px;"></a>
-                    <a><img src="../img/bola.png" alt="7" style="margin:5px;"></a>
-                    <a><img src="../img/goal.png" alt="8" style="margin:5px;"></a>
-                    <a><img src="../img/tempo.png" alt="9" style="margin:5px;"></a>
-                    <a><img src="../img/times.png" alt="10" style="margin:5px;"></a>
-                    <a><img src="../img/jpnn.png" alt="11" style="margin:5px;"></a>
-                    <a><img src="../img/jawapos.png" alt="12" style="margin:5px;"></a>
-                    <a><img src="../img/okzone.png" alt="13" style="margin:5px;"></a>
-                    <a><img src="../img/suara.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/kumparan.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/sindonews.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/idn.png" alt="14" style="margin:5px;"></a>  
-                    <a><img src="../img/INews.png" alt="14" style="margin:5px;"></a> 
-                    <a><img src="../img/merdeka.png" alt="14" style="margin:5px;"></a>     
+                <div class="col-lg-3 col-md-6 mb-5 ml-auto">
+                    <h4 class="font-weight-bold mb-4">Media Partner</h4>
+                    <div class="d-flex flex-wrap m-n1">
+                        <a><img src="../img/detik.png" alt="1" style="margin:5px;"></a>
+                        <a><img src="../img/kompas.png" alt="2" style="margin:5px;"></a>
+                        <a><img src="../img/liputan6.png" alt="3" style="margin:5px;"></a>
+                        <a><img src="../img/cnn.png" alt="4" style="margin:5px;"></a>
+                        <a><img src="../img/tribun.png" alt="5" style="margin:5px;"></a>
+                        <a><img src="../img/cnbc.png" alt="6" style="margin:5px;"></a>
+                        <a><img src="../img/bola1.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/bola.png" alt="7" style="margin:5px;"></a>
+                        <a><img src="../img/goal.png" alt="8" style="margin:5px;"></a>
+                        <a><img src="../img/tempo.png" alt="9" style="margin:5px;"></a>
+                        <a><img src="../img/times.png" alt="10" style="margin:5px;"></a>
+                        <a><img src="../img/jpnn.png" alt="11" style="margin:5px;"></a>
+                        <a><img src="../img/jawapos.png" alt="12" style="margin:5px;"></a>
+                        <a><img src="../img/okzone.png" alt="13" style="margin:5px;"></a>
+                        <a><img src="../img/suara.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/kumparan.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/sindonews.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/idn.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/INews.png" alt="14" style="margin:5px;"></a>
+                        <a><img src="../img/merdeka.png" alt="14" style="margin:5px;"></a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 ml-auto">
-                <h4 class="font-weight-bold mb-4">Quick Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                    <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                <div class="col-lg-3 col-md-6 mb-5 ml-auto">
+                    <h4 class="font-weight-bold mb-4">Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="logout.php"><i class="fa fa-angle-right text-dark mr-2"></i>Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid py-4 px-sm-3 px-md-5">
-        <p class="m-0 text-center">
-            &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved. 
-			
-			<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-			Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
-        </p>
-    </div>
-</footer>
+        <div class="container-fluid py-4 px-sm-3 px-md-5">
+            <p class="m-0 text-center">
+                &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
+
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
+            </p>
+        </div>
+    </footer>
     <!-- Footer End -->
 
     <!-- Back to Top -->

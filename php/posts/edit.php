@@ -110,8 +110,8 @@ if (!isset($_SESSION["username"])) {
                         </div>
                         <img src="../../img/<?= $posts["img"]; ?>" width="120px" style="display: block;" class="img-preview">
                     </div>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit" name="update_posts">Update Data!</button>
-                    <button class="waves-effect waves-light orange darken-4 btn" type="submit">
+                    <button class="waves-effect waves-light green darken-4 btn" type="submit" name="update_posts">Update Data!</button>
+                    <button class="waves-effect waves-light blue darken-4 btn" type="submit">
                         <a href="../../dashboard/posts.php" style='text-decoration: none; color: white;'>Back</a>
                     </button>
                 </div>

@@ -10,6 +10,13 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY posts.id ASC
 LIMIT 10");
+
+$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY publish DESC
+LIMIT 4");
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +53,11 @@ LIMIT 10");
             <div class="row align-items-center bg-primary px-lg-5">
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
-                        <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px;">
-                            <div class="text-truncate"><a class="text-white" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>
+                        <div class="d-inline-flex py-2" style="width: 200px; font-size:18px; padding-left: -500px"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                            <?php foreach ($breakingposts as $Bpost) : ?>
+                                <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -95,39 +102,19 @@ LIMIT 10");
         <div class="row">
             <div class="col-lg-12">
                 <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                    <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-700x435-1.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-1">
-                                <a class="text-white">Sports</a>
-                                <span class="px-2 text-white">/</span>
-                                <a class="text-white">January 01, 2045</a>
+                    <?php foreach ($breakingposts as $Bpost) : ?>
+                        <div class="position-relative overflow-hidden" style="height: 750px;">
+                            <img class="img-fluid h-100" src="img/<?= $Bpost['img']; ?>" style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-1">
+                                    <a class="text-white"><?= $Bpost['nama_category']; ?></a>
+                                    <span class="px-2 text-white">/</span>
+                                    <a class="text-white"><?= date("F d, Y", strtotime($Bpost['publish'])); ?></a>
+                                </div>
+                                <a class="h2 m-0 text-white font-weight-bold" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul']; ?></a>
                             </div>
-                            <a class="h2 m-0 text-white font-weight-bold" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a>
                         </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-700x435-2.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-1">
-                                <a class="text-white" href="">Technology</a>
-                                <span class="px-2 text-white">/</span>
-                                <a class="text-white" href="#">January 01, 2045</a>
-                            </div>
-                            <a class="h2 m-0 text-white font-weight-bold" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 750px;">
-                        <img class="img-fluid h-100" src="img/news-500x280-1.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-1">
-                                <a class="text-white" href="">Technology</a>
-                                <span class="px-2 text-white">/</span>
-                                <a class="text-white" href="#">January 01, 2045</a>
-                            </div>
-                            <a class="h2 m-0 text-white font-weight-bold" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -154,9 +141,9 @@ LIMIT 10");
                                 <img class="img-fluid" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
-                                        <a href="#"><?= $post['nama_category']; ?></a>
+                                        <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
                                         <span class="px-1">/</span>
-                                        <span><?= $post['publish']; ?></span>
+                                        <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
                                     </div>
                                     <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
                                     <p class="m-0"><?php echo $textcut . "..." ?></p>
@@ -165,7 +152,6 @@ LIMIT 10");
                         </div>
                     <?php endforeach; ?>
                 </div>
-
             </div>
             <!-- breaking news -->
             <div class="col-lg-4 pt-3 pt-lg-0">
@@ -175,14 +161,7 @@ LIMIT 10");
                         <h3 class="m-0 text-white">Breaking News</h3>
                     </div>
 
-                    <?php
-                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-                    FROM posts
-                    JOIN category ON posts.category_id = category.id
-                    JOIN author ON posts.author_id = author.id
-                    ORDER BY publish DESC
-                    LIMIT 4");
-                    foreach ($breakingposts as $Bpost) :
+                    <?php foreach ($breakingposts as $Bpost) :
                         $textbreaking = explode(' ', $Bpost['body']);
                         $textbreakingcut = implode(' ', array_slice($textbreaking, 0, 10));
                     ?>
@@ -190,15 +169,14 @@ LIMIT 10");
                             <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="#"><?= $Bpost['nama_category']; ?></a>
+                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= $Bpost['publish']; ?></span>
+                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
                                 </div>
                                 <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?php echo $textbreakingcut . "..." ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
-
                 </div>
                 <!-- Hot News End -->
                 <!-- Category Start -->
@@ -301,11 +279,10 @@ LIMIT 10");
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>
             </div>
@@ -315,7 +292,7 @@ LIMIT 10");
                 &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
             </p>
         </div>
     </footer>
