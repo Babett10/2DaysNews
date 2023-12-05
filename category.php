@@ -158,17 +158,17 @@ LIMIT 4");
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <?php foreach ($sports as $sport) :
                         $text = explode(' ', $sport['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 5));
+                        $textcut = implode(' ', array_slice($text, 0, 4));
                     ?>
                         <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $sport['img']; ?>" style="width: 200px; height: 150px; object-fit: cover;">
+                            <img class="img-fluid w-100" src="img/<?= $sport['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 13px;">
                                     <a href="<?= $sport['nama_category']; ?>_news.php"><?= $sport['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($sport['publish'])); ?></span>
                                 </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $sport['id'] ?>"><?= $textcut; ?></a>
+                                <a class="h4 m-0" href="single.php?id=<?= $sport['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -185,17 +185,17 @@ LIMIT 4");
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <?php foreach ($esports as $esport) :
                         $text = explode(' ', $esport['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 5));
+                        $textcut = implode(' ', array_slice($text, 0, 4));
                     ?>
                         <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $esport['img']; ?>" style="width: 200px; height: 150px; object-fit: cover;">
+                            <img class="img-fluid w-100" src="img/<?= $esport['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 13px;">
                                     <a href="<?= $esport['nama_category']; ?>_news.php"><?= $esport['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($esport['publish'])); ?></span>
                                 </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $esport['id'] ?>"><?= $textcut; ?></a>
+                                <a class="h4 m-0" href="single.php?id=<?= $esport['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -256,17 +256,17 @@ LIMIT 4");
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
                     <?php foreach ($film as $movie) :
                         $text = explode(' ', $movie['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 5));
+                        $textcut = implode(' ', array_slice($text, 0, 4));
                     ?>
                         <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $movie['img']; ?>" style="width: 200px; height: 150px; object-fit: cover;">
+                            <img class="img-fluid w-100" src="img/<?= $movie['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 13px;">
                                     <a href="<?= $movie['nama_category']; ?>_news.php"><?= $movie['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($movie['publish'])); ?></span>
                                 </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $movie['id'] ?>"><?= $textcut; ?></a>
+                                <a class="h4 m-0" href="single.php?id=<?= $movie['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>

@@ -113,7 +113,7 @@ LIMIT 4");
                     ?>
                         <div class="col-lg-4">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <img class="img-fluid w-100" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
                                         <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
