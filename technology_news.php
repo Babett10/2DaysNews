@@ -4,35 +4,10 @@
 
 require 'php/functions.php';
 
-$sports = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-FROM posts
-JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Sport' LIMIT 3");
-
-$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-FROM posts
-JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Politic' LIMIT 3");
-
 $technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Technology' LIMIT 3");
-
-$esports = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-FROM posts
-JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'E-Sport' LIMIT 3");
-
-$film = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-FROM posts
-JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'FIlm' LIMIT 3");
-
-$otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-FROM posts
-JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Otomotif' LIMIT 3");
+WHERE nama_category = 'technology'");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -47,7 +22,7 @@ LIMIT 4");
 
 <head>
     <meta charset="utf-8">
-    <title>2DAYNEWS | Category</title>
+    <title>2DAYNEWS | All technology News</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -70,7 +45,7 @@ LIMIT 4");
 </head>
 
 <body>
-    <!-- Topbar Start -->
+    <!-- Header -->
     <header>
         <div class="container-fluid nav-observer">
             <div class="row align-items-center bg-primary px-lg-5">
@@ -104,8 +79,8 @@ LIMIT 4");
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link  ">Home</a>
-                        <a href="category.php" class="nav-item nav-link active">Category</a>
+                        <a href="index.php" class="nav-item nav-link active ">Home</a>
+                        <a href="category.php" class="nav-item nav-link">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="login.php" class="nav-item nav-link">Login</a>
                     </div>
@@ -119,175 +94,42 @@ LIMIT 4");
             </nav>
         </div>
     </header>
-    <!-- Topbar End -->
+
+    <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5">
         <div class="row">
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Politics</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <?php foreach ($politics as $politic) :
-                        $text = explode(' ', $politic['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
-                    ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $politic['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $politic['nama_category']; ?>_news.php"><?= $politic['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
-                                </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $politic['id'] ?>"><?= $textcut . "..." ?></a>
-                            </div>
+            <div class="col-lg-12">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
+                            <h3 class="text-white m-0">technology News</h3>
                         </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="politics_news.php" style="color: white;">View All</a>
-                </div>
-            </div>
-
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Sport</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <?php foreach ($sports as $sport) :
-                        $text = explode(' ', $sport['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
-                    ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $sport['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $sport['nama_category']; ?>_news.php"><?= $sport['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($sport['publish'])); ?></span>
-                                </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $sport['id'] ?>"><?= $textcut . "..." ?></a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="sport_news.php" style="color: white;">View All</a>
-                </div>
-            </div>
-
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">E-Sport</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <?php foreach ($esports as $esport) :
-                        $text = explode(' ', $esport['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
-                    ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $esport['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $esport['nama_category']; ?>_news.php"><?= $esport['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($esport['publish'])); ?></span>
-                                </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $esport['id'] ?>"><?= $textcut . "..." ?></a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="e-sport_news.php" style="color: white;">View All</a>
-                </div>
-            </div>
-
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Technology</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
+                    </div>
                     <?php foreach ($technologies as $technology) :
-                        $text = explode(' ', $technology['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
+                        $text = explode(' ', $technology['body']);
+                        $textcut = implode(' ', array_slice($text, 0, 15));
                     ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $technology['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $technology['nama_category']; ?>_news.php"><?= $technology['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+                        <div class="col-lg-4">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="img/<?= $technology['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <div class="overlay position-relative bg-light">
+                                    <div class="mb-2" style="font-size: 14px;">
+                                        <a href="#"><?= $technology['nama_category']; ?></a>
+                                        <span class="px-1">/</span>
+                                        <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+                                    </div>
+                                    <a class="h4" href="single.php?id=<?= $technology['id'] ?>"><?= $technology['judul'] ?></a>
+                                    <p class="m-0"><?= $textcut; ?>...</p>
                                 </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $technology['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="technology_news.php" style="color: white;">View All</a>
-                </div>
             </div>
-
-            
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Film</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <?php foreach ($film as $movie) :
-                        $text = explode(' ', $movie['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
-                    ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $movie['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $movie['nama_category']; ?>_news.php"><?= $movie['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($movie['publish'])); ?></span>
-                                </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $movie['id'] ?>"><?= $textcut . "..." ?></a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="film_news.php" style="color: white;">View All</a>
-                </div>
-            </div>
-
-            <div class="col-lg-6 py-3">
-                <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Otomotif</h3>
-                </div>
-                <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <?php foreach ($otomotif as $oto) :
-                        $text = explode(' ', $oto['judul']);
-                        $textcut = implode(' ', array_slice($text, 0, 4));
-                    ?>
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/<?= $oto['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 13px;">
-                                    <a href="<?= $oto['nama_category']; ?>_news.php"><?= $oto['nama_category']; ?></a>
-                                    <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($oto['publish'])); ?></span>
-                                </div>
-                                <a class="h4 m-0" href="single.php?id=<?= $oto['id'] ?>"><?= $textcut . "..." ?></a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="otomotif_news.php" style="color: white;">View All</a>
-                </div>
-            </div>
-
-            
         </div>
     </div>
+    <!-- News With Sidebar End -->
+
     <!-- Footer Start -->
     <footer>
         <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
@@ -352,10 +194,8 @@ LIMIT 4");
     </footer>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

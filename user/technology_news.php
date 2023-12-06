@@ -4,10 +4,10 @@
 
 require '../php/functions.php';
 
-$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'politic'");
+WHERE nama_category = 'technology'");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -29,7 +29,7 @@ if (!isset($_SESSION["username"])) {
 
 <head>
     <meta charset="utf-8">
-    <title>2DAYNEWS | All Politic News</title>
+    <title>2DAYNEWS | All Technology News</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -109,23 +109,23 @@ if (!isset($_SESSION["username"])) {
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
-                            <h3 class="text-white m-0">Politic News</h3>
+                            <h3 class="text-white m-0">Technology News</h3>
                         </div>
                     </div>
-                    <?php foreach ($politics as $politic) :
-                        $text = explode(' ', $politic['body']);
+                    <?php foreach ($technologies as $technology) :
+                        $text = explode(' ', $technology['body']);
                         $textcut = implode(' ', array_slice($text, 0, 15));
                     ?>
                         <div class="col-lg-4">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="../img/<?= $politic['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <img class="img-fluid w-100" src="../img/<?= $technology['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
                                 <div class="overlay position-relative bg-light">
                                     <div class="mb-2" style="font-size: 14px;">
-                                        <a href="#"><?= $politic['nama_category']; ?></a>
+                                        <a href="#"><?= $technology['nama_category']; ?></a>
                                         <span class="px-1">/</span>
-                                        <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+                                        <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
                                     </div>
-                                    <a class="h4" href="single.php?id=<?= $politic['id'] ?>"><?= $politic['judul'] ?></a>
+                                    <a class="h4" href="single.php?id=<?= $technology['id'] ?>"><?= $technology['judul'] ?></a>
                                     <p class="m-0"><?= $textcut; ?>...</p>
                                 </div>
                             </div>

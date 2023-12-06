@@ -4,6 +4,18 @@
 
 require '../php/functions.php';
 
+$otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+WHERE nama_category = 'otomotif'");
+
+$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY publish DESC
+LIMIT 4");
+
 session_start();
 
 if (!isset($_SESSION["username"])) {
@@ -17,13 +29,13 @@ if (!isset($_SESSION["username"])) {
 
 <head>
     <meta charset="utf-8">
-    <title>2DAYNEWS | View Otomotif All</title>
+    <title>2DAYNEWS | All Otomotif News</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/2daynews.png">
+    <link rel="shortcut icon" href="../img/2daynews.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,10 +59,10 @@ if (!isset($_SESSION["username"])) {
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px;">
-                            <div class="text-truncate"><a class="text-white" href="#">Kritik Netizen untuk Performa Asnawi di Timnas Indonesia: Main Grasak Grusuk, Menurun Sejak Gaul Sama Artis</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">4 Bukti Meta dan Medsosnya Tak Netral di Konflik Israel-Palestina</a></div>
-                            <div class="text-truncate"><a class="text-white" href="#">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" Ala iPhone</a></div>
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                            <?php foreach ($breakingposts as $Bpost) : ?>
+                                <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -100,62 +112,25 @@ if (!isset($_SESSION["username"])) {
                             <h3 class="text-white m-0">Otomotif News</h3>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                    <?php foreach ($otomotif as $oto) :
+                        $text = explode(' ', $oto['body']);
+                        $textcut = implode(' ', array_slice($text, 0, 15));
+                    ?>
+                        <div class="col-lg-4">
+                            <div class="position-relative mb-3">
+                                <img class="img-fluid w-100" src="../img/<?= $oto['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                <div class="overlay position-relative bg-light">
+                                    <div class="mb-2" style="font-size: 14px;">
+                                        <a href="#"><?= $oto['nama_category']; ?></a>
+                                        <span class="px-1">/</span>
+                                        <span><?= date("F d, Y", strtotime($oto['publish'])); ?></span>
+                                    </div>
+                                    <a class="h4" href="single.php?id=<?= $oto['id'] ?>"><?= $oto['judul'] ?></a>
+                                    <p class="m-0"><?= $textcut; ?>...</p>
                                 </div>
-                                <a class="h4" href="single.php">Tecno Spark 20C Rilis dengan Fitur "Dynamic Island" ala iPhone</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="../img/news-500x280-3.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="../img/news-500x280-5.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="#">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="../img/news-500x280-6.jpg" style="object-fit: cover;">
-                            <div class="overlay position-relative bg-light">
-                                <div class="mb-2" style="font-size: 14px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at justo, lorem amet vero eos sed sit...</p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -207,11 +182,10 @@ if (!isset($_SESSION["username"])) {
                 <div class="col-lg-3 col-md-6 mb-5 ml-auto">
                     <h4 class="font-weight-bold mb-4">Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
+                        <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
+                        <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="logout.php"><i class="fa fa-angle-right text-dark mr-2"></i>Logout</a>
                     </div>
                 </div>
             </div>
@@ -221,7 +195,7 @@ if (!isset($_SESSION["username"])) {
                 &copy; <a class="font-weight-bold" href="#">2DAYNEWS</a>. All Rights Reserved.
 
                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Kelompok 2</a>
+                Designed by <a class="font-weight-bold" href="https://github.com/Babett10/FinalProject">Kelompok 2</a>
             </p>
         </div>
     </footer>

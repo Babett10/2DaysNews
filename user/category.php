@@ -9,6 +9,16 @@ FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Sport' LIMIT 3");
 
+$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+WHERE nama_category = 'Politic' LIMIT 3");
+
+$technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+WHERE nama_category = 'Technology' LIMIT 3");
+
 $esports = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
@@ -19,6 +29,10 @@ FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'FIlm' LIMIT 3");
 
+$otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+WHERE nama_category = 'Otomotif' LIMIT 3");
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
@@ -116,45 +130,28 @@ if (!isset($_SESSION["username"])) {
         <div class="row">
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Entertainment</h3>
+                    <h3 class="m-0" style="color: white;">Politics</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2023</span>
+                    <?php foreach ($politics as $politic) :
+                        $text = explode(' ', $politic['judul']);
+                        $textcut = implode(' ', array_slice($text, 0, 4));
+                    ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="../img/<?= $politic['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="<?= $politic['nama_category']; ?>_news.php"><?= $politic['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $politic['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
-                            <a class="h4 m-0" href="">Samett amet ipsum loream</a>
                         </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-2.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
-                        </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-3.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="entertainment_news.php" style="color: white;">View All</a>
+                    <a href="politics_news.php" style="color: white;">View All</a>
                 </div>
             </div>
 
@@ -214,48 +211,32 @@ if (!isset($_SESSION["username"])) {
 
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
-                    <h3 class="m-0" style="color: white;">Politics</h3>
+                    <h3 class="m-0" style="color: white;">Technology</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2023</span>
+                    <?php foreach ($technologies as $technology) :
+                        $text = explode(' ', $technology['judul']);
+                        $textcut = implode(' ', array_slice($text, 0, 4));
+                    ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="../img/<?= $technology['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="<?= $technology['nama_category']; ?>_news.php"><?= $technology['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $technology['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
-                            <a class="h4 m-0" href="">Samett amet ipsum loream</a>
                         </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-2.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
-                        </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-3.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
-                    <a href="politics_news.php" style="color: white;">View All</a>
+                    <a href="technology_news.php" style="color: white;">View All</a>
                 </div>
             </div>
 
+            
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
                     <h3 class="m-0" style="color: white;">Film</h3>
@@ -288,44 +269,29 @@ if (!isset($_SESSION["username"])) {
                     <h3 class="m-0" style="color: white;">Otomotif</h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-1.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2023</span>
+                    <?php foreach ($otomotif as $oto) :
+                        $text = explode(' ', $oto['judul']);
+                        $textcut = implode(' ', array_slice($text, 0, 4));
+                    ?>
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" src="../img/<?= $oto['img']; ?>" style="width: 300px; height: 200px; object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 13px;">
+                                    <a href="<?= $oto['nama_category']; ?>_news.php"><?= $oto['nama_category']; ?></a>
+                                    <span class="px-1">/</span>
+                                    <span><?= date("F d, Y", strtotime($oto['publish'])); ?></span>
+                                </div>
+                                <a class="h4 m-0" href="single.php?id=<?= $oto['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
-                            <a class="h4 m-0" href="">Samett amet ipsum loream</a>
                         </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-2.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sancts amet sed ipsum lorem</a>
-                        </div>
-                    </div>
-                    <div class="position-relative">
-                        <img class="img-fluid w-100" src="../img/news-500x280-3.jpg" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 13px;">
-                                <a href="">Technology</a>
-                                <span class="px-1">/</span>
-                                <span>January 01, 2045</span>
-                            </div>
-                            <a class="h4 m-0" href="">Sanctus amet sed ipsum lorem</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="bg-dark py-2 px-4 mb-3 mt-3 text-center">
                     <a href="otomotif_news.php" style="color: white;">View All</a>
                 </div>
             </div>
+
+            
         </div>
     </div>
 
