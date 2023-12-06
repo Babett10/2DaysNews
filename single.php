@@ -16,7 +16,11 @@ FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
-LIMIT 4");
+LIMIT 5");
+
+$comments = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
+JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 0 ;");
+
 ?>
 
 <!DOCTYPE html>
@@ -139,37 +143,29 @@ LIMIT 4");
                 <!-- News Detail End -->
                 <!-- Comment List Start -->
                 <div class="bg-light mb-3" style="padding: 30px;">
-                    <h3 class="mb-4">3 Comments</h3>
-                    <div class="media mb-4">
-                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                            <div class="media mt-4">
-                                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                <div class="media-body">
-                                    <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                        labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                        eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                        ipsum diam tempor consetetur at sit.</p>
+                    <h3 class="mb-4">Comments</h3>
+                    <?php foreach ($comments as $comment) : ?>    
+                        <div class="media">
+                            <img src="img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= $comment['tanggal']; ?></i></small></h6>
+                                <p><?= $comment['comment']; ?></p>   
+
+                                <?php
+                                $replys = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
+                                JOIN user ON comment.user_id = user.id_user WHERE parent_id = $comment[id];");
+                                 foreach ($replys as $reply) : ?>    
+                                <div class="media mt-4">
+                                    <img src="img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                    <div class="media-body">
+                                        <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= $reply['tanggal']; ?></i></small></h6>
+                                        <p><?= $reply['comment']; ?></p>
+                                    </div>
                                 </div>
+                                <?php endforeach;  ?>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach;  ?>
                 </div>
                 <!-- Comment List End -->
             </div>
@@ -183,12 +179,6 @@ LIMIT 4");
                     </div>
 
                     <?php
-                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-                    FROM posts
-                    JOIN category ON posts.category_id = category.id
-                    ORDER BY publish DESC
-                    LIMIT 5");
-
                     foreach ($breakingposts as $Bpost) : ?>
                         <div class="d-flex mb-3">
                             <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">

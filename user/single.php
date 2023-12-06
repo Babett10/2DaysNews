@@ -4,6 +4,27 @@
 
 require '../php/functions.php';
 
+if (isset($_POST['add_comment'])) {
+    if (add_comment($_POST) > 0) {
+        echo "<script>
+            alert('Data Added successfully!');
+            document.location.href = 'index.php';
+          </script>";
+    } else {
+        echo "<script>
+            alert('Data Failed to add!');
+            document.location.href = 'index.php';
+          </script>";
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Memeriksa apakah kolom komentar tidak kosong
+    if (empty($_POST["add_comment"])) {
+        $error_message = "Kolom komentar tidak boleh kosong.";
+    }
+}
+
 $id = $_GET['id'];
 $posts = query("SELECT posts.id, img, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
 FROM posts 
@@ -16,9 +37,17 @@ FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
-LIMIT 4");
+LIMIT 5");
+
+$comments = query("SELECT id,parent_id,comment,tanggal,username,post_id,user_id FROM `comment` 
+JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 0 ;");
 
 session_start();
+$userr = $_SESSION["username"];
+
+$idusers = query("SELECT id_user FROM `user` WHERE username = '$userr'");
+foreach ($idusers as $iduser) :
+endforeach;
 
 if (!isset($_SESSION["username"])) {
     header("Location: ../login.php");
@@ -138,68 +167,88 @@ if (!isset($_SESSION["username"])) {
                         </div>
                         <div>
                             <h3 class="mb-3"><?= $posts['judul']; ?></h3>
-                            <p style="text-align: justify;"><?= nl2br($posts['body']); ?></p>
+                            <p style="text-align: justify;"><b>2DayNews</b> - <?= nl2br($posts['body']); ?></p>
                         </div>
                     </div>
                 </div>
                 <!-- News Detail End -->
                 <!-- Comment List Start -->
                 <div class="bg-light mb-3" style="padding: 30px;">
-                    <h3 class="mb-4">3 Comments</h3>
-                    <div class="media mb-4">
-                        <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                            <div class="media mt-4">
-                                <img src="../img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                <div class="media-body">
-                                    <h6><a href="">John Doe</a> <small><i>01 Jan 2045 at 12:00pm</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                        labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                        eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                        ipsum diam tempor consetetur at sit.</p>
-                                    <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                                </div>
+                    <h3 class="mb-4">Comments</h3>
+                    <?php foreach ($comments as $comment) : ?>    
+                        <div class="media">
+                            <img src="../img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= $comment['tanggal']; ?></i></small></h6>
+                                <p><?= $comment['comment']; ?></p>
+                                <!-- reply form -->
+                                <form action="" method="post">
+                                    <div class="form-group">             
+                                        <input type="text" class="form-control" name="user_id" value="<?php echo $iduser['id_user']; ?>" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- parent id -->
+                                        <input type="number" class="form-control" name="parent_id" value="<?php echo $comment['id']; ?>" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- tanggal -->
+                                        <input type="text" class="form-control" name="tanggal" value="<?php echo date('Y-m-d H:i:s'); ?>" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- post id -->
+                                        <input type="number" class="form-control" name="post_id" value="<?= $id;?>" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="comment" cols="30"  rows="1" class="form-control"></textarea>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-secondary" type="submit" name="add_comment">Reply</button>  
+                                </form>
+                                <!-- close reply form -->
+
+                                    <?php
+                                    $replys = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
+                                    JOIN user ON comment.user_id = user.id_user WHERE parent_id = $comment[id];");
+                                    foreach ($replys as $reply) : ?>    
+                                        <div class="media mt-4">
+                                            <img src="../img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                            <div class="media-body">
+                                                <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= $reply['tanggal']; ?></i></small></h6>
+                                                <p><?= $reply['comment']; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endforeach;  ?>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach;?>
                 </div>
                 <!-- Comment List End -->
 
                 <!-- Comment Form Start -->
                 <div class="bg-light mb-3" style="padding: 30px;">
                     <h3 class="mb-4">Leave a comment</h3>
-                    <form>
+                    <form action="" method="post">
                         <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name">
+                            <label for="name">Comment as <b><?= $userr;?></b></label>
+                            <input type="text" class="form-control" name="user_id" value="<?php echo $iduser['id_user']; ?>" hidden>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email">
+                            <!-- parent id -->
+                            <input type="number" class="form-control" name="parent_id" value="0" hidden>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                            <!-- tanggal -->
+                            <input type="text" class="form-control" name="tanggal" value="<?php echo date('Y-m-d H:i:s'); ?>" hidden>
+                        </div>
+                        <div class="form-group">
+                            <!-- post id -->
+                            <input type="number" class="form-control" name="post_id" value="<?= $id;?>" hidden>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Message *</label>
+                            <textarea name="comment" cols="30" rows="5" class="form-control" id="comment"></textarea>
                         </div>
                         <div class="form-group mb-0">
-                            <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            <input type="submit" value="Leave a comment" id="replyButton" name="add_comment" class="btn btn-primary font-weight-semi-bold py-2 px-3" disabled>
                         </div>
                     </form>
                 </div>
@@ -215,12 +264,6 @@ if (!isset($_SESSION["username"])) {
                     </div>
 
                     <?php
-                    $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
-                    FROM posts
-                    JOIN category ON posts.category_id = category.id
-                    ORDER BY publish DESC
-                    LIMIT 5");
-
                     foreach ($breakingposts as $Bpost) : ?>
                         <div class="d-flex mb-3">
                             <img src="../img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
@@ -392,7 +435,23 @@ if (!isset($_SESSION["username"])) {
             })
 
             intersection.observe(nav)
+
+        function checkForm() {
+            var comment = document.getElementById('comment').value;
+            var replyButton = document.getElementById('replyButton');
+
+            if (comment.trim() !== '') {
+            // Form is filled, enable the reply button
+            replyButton.removeAttribute('disabled');
+            } else {
+            // Form is not completely filled, disable the reply button
+            replyButton.setAttribute('disabled', 'true');
+            }
         }
+
+         document.getElementById('comment').addEventListener('input', checkForm);
+
+     }
     </script>
 </body>
 

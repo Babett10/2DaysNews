@@ -216,6 +216,26 @@ function delete_author($id)
     return mysqli_affected_rows($conn);
 }
 
+function add_comment($data)
+{
+    $conn = koneksi();
+
+    $parent_id = htmlspecialchars($data['parent_id']);
+    $comment = htmlspecialchars($data['comment']);
+    $tanggal = htmlspecialchars($data['tanggal']);
+    $user_id = htmlspecialchars($data['user_id']);
+    $post_id = htmlspecialchars($data['post_id']);
+
+    
+    $query = "INSERT INTO comment
+              VALUES
+            ('', '$parent_id', '$comment','$tanggal','$user_id','$post_id')";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
 // Comment
 function delete_comment($id)
 {
