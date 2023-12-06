@@ -140,8 +140,8 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
 
 <body class="body-wrapper blur" data-spy="scroll" data-target=".privacy-nav">
 
-  <section class="user-login " style="padding-top: 70px;">
-    <div class="container ">
+  <section class="user-login">
+    <div class="container p-5">
       <div class="row" style="justify-content: center;">
         <div class="col-5">
           <div class="block box bg-white" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
