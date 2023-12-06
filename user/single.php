@@ -90,7 +90,7 @@ if (!isset($_SESSION["username"])) {
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 70px;">
                             <?php foreach ($breakingposts as $Bpost) : ?>
                                 <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
                             <?php endforeach; ?>

@@ -16,6 +16,11 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
 LIMIT 4");
+
+if (isset($_POST["cari"])) {
+    $keyword = $_POST["keyword"];
+    $posts = cari($keyword);
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +58,7 @@ LIMIT 4");
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 70px;">
                             <?php foreach ($breakingposts as $Bpost) : ?>
                                 <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
                             <?php endforeach; ?>
@@ -86,10 +91,12 @@ LIMIT 4");
                         <a href="login.php" class="nav-item nav-link">Login</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="input-group-append">
+                                <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword) ? $keyword : '' ?>">
+                                <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -107,25 +114,29 @@ LIMIT 4");
                         </div>
                     </div>
 
-                    <?php foreach ($posts as $post) :
-                        $text = explode(' ', $post['body']);
-                        $textcut = implode(' ', array_slice($text, 0, 20));
-                    ?>
-                        <div class="col-lg-4">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
-                                        <span class="px-1">/</span>
-                                        <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
+                    <?php if (empty($posts)) : ?>
+                        <h1 style="margin: auto;">Data tidak ditemukan</h1>
+                    <?php else : ?>
+                        <?php foreach ($posts as $post) :
+                            $text = explode(' ', $post['body']);
+                            $textcut = implode(' ', array_slice($text, 0, 20));
+                        ?>
+                            <div class="col-lg-4">
+                                <div class="position-relative mb-3">
+                                    <img class="img-fluid w-100" src="img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                    <div class="overlay position-relative bg-light">
+                                        <div class="mb-2" style="font-size: 14px;">
+                                            <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
+                                            <span class="px-1">/</span>
+                                            <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
+                                        </div>
+                                        <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
+                                        <p class="m-0"><?php echo $textcut . "..." ?></p>
                                     </div>
-                                    <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
-                                    <p class="m-0"><?php echo $textcut . "..." ?></p>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

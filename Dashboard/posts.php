@@ -171,7 +171,7 @@ if (!isset($_SESSION["username"])) {
                                     <tr>
                                         <td><?= $i; ?>.</td>
                                         <td><?= $post['judul']; ?></td>
-                                        <td><?= $post['publish']; ?></td>
+                                        <td><?= date("F d, Y", strtotime($post['publish'])); ?></td>
                                         <td><?= $post['nama_category']; ?></td>
                                         <td><?= $post['nama_author']; ?></td>
                                         <td>

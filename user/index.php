@@ -18,6 +18,11 @@ JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
 LIMIT 4");
 
+if (isset($_POST["cari"])) {
+    $keyword = $_POST["keyword"];
+    $posts = cari($keyword);
+}
+
 session_start();
 
 if (!isset($_SESSION["username"])) {
@@ -61,7 +66,7 @@ if (!isset($_SESSION["username"])) {
                 <div class="col-12 col-md-8">
                     <div class="d-flex justify-content-between">
                         <div class="d-inline-flex py-2" style="width: 200px; font-size:18px;"><span class="text-light text-uppercase" style="font-weight: bolder;">Breaking&nbsp;News</span></div>
-                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 45px">
+                        <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 150px); padding-left: 90px; padding-right: 70px;">
                             <?php foreach ($breakingposts as $Bpost) : ?>
                                 <div class="text-truncate"><a class="text-white" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul'] ?></a></div>
                             <?php endforeach; ?>
@@ -94,10 +99,12 @@ if (!isset($_SESSION["username"])) {
                         <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="input-group-append">
+                                <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword) ? $keyword : '' ?>">
+                                <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -105,27 +112,30 @@ if (!isset($_SESSION["username"])) {
     </header>
 
     <!-- Main News Slider Start -->
-    <div class="container-fluid py-3 px-lg-5 mt-3">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
-                    <?php foreach ($breakingposts as $Bpost) : ?>
-                        <div class="position-relative overflow-hidden" style="height: 750px;">
-                            <img class="img-fluid h-100" src="../img/<?= $Bpost['img']; ?>" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-1">
-                                    <a class="text-white"><?= $Bpost['nama_category']; ?></a>
-                                    <span class="px-2 text-white">/</span>
-                                    <a class="text-white"><?= date("F d, Y", strtotime($Bpost['publish'])); ?></a>
+    <?php $isSearching = isset($_POST["cari"]); ?>
+    <?php if (!$isSearching) : ?>
+        <div class="container-fluid py-3 px-lg-5 mt-3">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
+                        <?php foreach ($breakingposts as $Bpost) : ?>
+                            <div class="position-relative overflow-hidden" style="height: 750px;">
+                                <img class="img-fluid h-100" src="../img/<?= $Bpost['img']; ?>" style="object-fit: cover;">
+                                <div class="overlay">
+                                    <div class="mb-1">
+                                        <a class="text-white"><?= $Bpost['nama_category']; ?></a>
+                                        <span class="px-2 text-white">/</span>
+                                        <a class="text-white"><?= date("F d, Y", strtotime($Bpost['publish'])); ?></a>
+                                    </div>
+                                    <a class="h2 m-0 text-white font-weight-bold" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul']; ?></a>
                                 </div>
-                                <a class="h2 m-0 text-white font-weight-bold" href="single.php?id=<?= $Bpost['id']; ?>"><?= $Bpost['judul']; ?></a>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
     <!-- News With Sidebar Start -->
     <div class="container-fluid py-3 px-lg-5">
         <div class="row">
@@ -137,25 +147,30 @@ if (!isset($_SESSION["username"])) {
                             <a class="text-white font-weight-medium text-decoration-none" href="all_news.php">View All</a>
                         </div>
                     </div>
-                    <?php foreach ($posts as $post) :
-                        $text = explode(' ', $post['body']);
-                        $textcut = implode(' ', array_slice($text, 0, 20));
-                    ?>
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="../img/<?= $post['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
-                                        <span class="px-1">/</span>
-                                        <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
+
+                    <?php if (empty($posts)) : ?>
+                        <h1 style="margin: auto;">Data tidak ditemukan</h1>
+                    <?php else : ?>
+                        <?php foreach ($posts as $post) :
+                            $text = explode(' ', $post['body']);
+                            $textcut = implode(' ', array_slice($text, 0, 20));
+                        ?>
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-3">
+                                    <img class="img-fluid w-100" src="../img/<?= $post['img']; ?>" style="width: 450px; height: 250px; object-fit: cover;">
+                                    <div class="overlay position-relative bg-light">
+                                        <div class="mb-2" style="font-size: 14px;">
+                                            <a href="<?= $post['nama_category']; ?>_news.php"><?= $post['nama_category']; ?></a>
+                                            <span class="px-1">/</span>
+                                            <span><?= date("F d, Y", strtotime($post['publish'])); ?></span>
+                                        </div>
+                                        <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
+                                        <p class="m-0"><?php echo $textcut . "..." ?></p>
                                     </div>
-                                    <a class="h4" href="single.php?id=<?= $post['id']; ?>"><?= $post['judul']; ?></a>
-                                    <p class="m-0"><?php echo $textcut . "..." ?></p>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <!-- breaking news -->
