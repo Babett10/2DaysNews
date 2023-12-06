@@ -247,3 +247,18 @@ function signup($data)
 
     return mysqli_affected_rows($conn);
 }
+
+// Searching
+function cari($keyword)
+{
+    $query = "SELECT posts.id, judul, img, body, publish, nama_category, nama_author FROM posts
+                JOIN category ON posts.category_id = category.id
+                JOIN author ON posts.author_id = author.id
+                WHERE
+                judul LIKE '%$keyword%' OR
+                publish LIKE '%$keyword%' OR
+                nama_category LIKE '$keyword' OR
+                nama_author LIKE '%$keyword%'
+                ";
+    return query($query);
+}

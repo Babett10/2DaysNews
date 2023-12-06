@@ -72,7 +72,7 @@ if (!isset($_SESSION["username"])) {
                         <label for="judul">Title</label>
                     </div>
                     <div class="input-field">
-                        <textarea name="body" id="body" required class="materialize-textarea"><?= $posts["body"]; ?></textarea>
+                        <textarea name="body" id="body" rows="20" style="height: 7rem;" required class="materialize-textarea"><?= $posts["body"]; ?></textarea>
                         <label for="body">Body</label>
                     </div>
                     <div class="input-field">
