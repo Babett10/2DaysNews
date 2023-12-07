@@ -199,7 +199,7 @@ if (isset($_POST["cari"])) {
                         <h3 class="m-0 text-white">Category</h3>
                     </div>
                     <div class="d-flex mb-2">
-                        <a href="entertainment_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Entertainment</a>
+                        <a href="technology_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
                         <a href="sport_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Sport</a>
                     </div>
                     <div class="d-flex mb-2">
