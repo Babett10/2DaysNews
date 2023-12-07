@@ -226,7 +226,7 @@ function add_comment($data)
     $user_id = htmlspecialchars($data['user_id']);
     $post_id = htmlspecialchars($data['post_id']);
 
-    
+
     $query = "INSERT INTO comment
               VALUES
             ('', '$parent_id', '$comment','$tanggal','$user_id','$post_id')";
@@ -279,6 +279,20 @@ function cari($keyword)
                 publish LIKE '%$keyword%' OR
                 nama_category LIKE '$keyword' OR
                 nama_author LIKE '%$keyword%'
+                ";
+    return query($query);
+}
+
+function cariCategory($keyword, $nama_category)
+{
+    $query = "SELECT posts.id, judul, img, body, publish, nama_category, nama_author FROM posts
+                JOIN category ON posts.category_id = category.id
+                JOIN author ON posts.author_id = author.id
+                WHERE
+                (judul LIKE '%$keyword%' OR
+                publish LIKE '%$keyword%' OR
+                nama_author LIKE '%$keyword%') AND
+                nama_category = '$nama_category'
                 ";
     return query($query);
 }

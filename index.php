@@ -204,7 +204,7 @@ if (isset($_POST["cari"])) {
                     </div>
                     <div class="d-flex mb-2">
                         <a href="e-sport_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">E-Sport</a>
-                        <a href="politics_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Politics</a>
+                        <a href="technology_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Technology</a>
                     </div>
                     <div class="d-flex mb-2">
                         <a href="film_news.php" class="h6 bg-light d-block w-50 py-2 px-3 text-dark text-decoration-none mr-2">Film</a>
