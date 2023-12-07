@@ -144,24 +144,24 @@ JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 
                 <!-- Comment List Start -->
                 <div class="bg-light mb-3" style="padding: 30px;">
                     <h3 class="mb-4">Comments</h3>
-                    <?php foreach ($comments as $comment) : ?>    
+                    <?php foreach ($comments as $comment) : ?>
                         <div class="media">
                             <img src="img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
-                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= $comment['tanggal']; ?></i></small></h6>
-                                <p><?= $comment['comment']; ?></p>   
+                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= date("d F Y H:i:s", strtotime($comment['tanggal'])); ?></i></small></h6>
+                                <p><?= $comment['comment']; ?></p>
 
                                 <?php
                                 $replys = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
                                 JOIN user ON comment.user_id = user.id_user WHERE parent_id = $comment[id];");
-                                 foreach ($replys as $reply) : ?>    
-                                <div class="media mt-4">
-                                    <img src="img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= $reply['tanggal']; ?></i></small></h6>
-                                        <p><?= $reply['comment']; ?></p>
+                                foreach ($replys as $reply) : ?>
+                                    <div class="media mt-4">
+                                        <img src="img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= date("d F Y H:i:s", strtotime($reply['tanggal'])); ?></i></small></h6>
+                                            <p><?= $reply['comment']; ?></p>
+                                        </div>
                                     </div>
-                                </div>
                                 <?php endforeach;  ?>
                             </div>
                         </div>

@@ -175,15 +175,15 @@ if (!isset($_SESSION["username"])) {
                 <!-- Comment List Start -->
                 <div class="bg-light mb-3" style="padding: 30px;">
                     <h3 class="mb-4">Comments</h3>
-                    <?php foreach ($comments as $comment) : ?>    
+                    <?php foreach ($comments as $comment) : ?>
                         <div class="media">
                             <img src="../img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
-                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= $comment['tanggal']; ?></i></small></h6>
+                                <h6><a href=""><?= $comment['username']; ?></a> <small>Posted on <i><?= date("d F Y H:i:s", strtotime($comment['tanggal'])); ?></i></small></h6>
                                 <p><?= $comment['comment']; ?></p>
                                 <!-- reply form -->
                                 <form action="" method="post">
-                                    <div class="form-group">             
+                                    <div class="form-group">
                                         <input type="text" class="form-control" name="user_id" value="<?php echo $iduser['id_user']; ?>" hidden>
                                     </div>
                                     <div class="form-group">
@@ -196,30 +196,30 @@ if (!isset($_SESSION["username"])) {
                                     </div>
                                     <div class="form-group">
                                         <!-- post id -->
-                                        <input type="number" class="form-control" name="post_id" value="<?= $id;?>" hidden>
+                                        <input type="number" class="form-control" name="post_id" value="<?= $id; ?>" hidden>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="comment" cols="30"  rows="1" class="form-control"></textarea>
+                                        <textarea name="comment" cols="30" rows="1" class="form-control"></textarea>
                                     </div>
-                                    <button class="btn btn-sm btn-outline-secondary" type="submit" name="add_comment">Reply</button>  
+                                    <button class="btn btn-sm btn-outline-secondary" type="submit" name="add_comment">Reply</button>
                                 </form>
                                 <!-- close reply form -->
 
-                                    <?php
-                                    $replys = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
+                                <?php
+                                $replys = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
                                     JOIN user ON comment.user_id = user.id_user WHERE parent_id = $comment[id];");
-                                    foreach ($replys as $reply) : ?>    
-                                        <div class="media mt-4">
-                                            <img src="../img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                            <div class="media-body">
-                                                <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= $reply['tanggal']; ?></i></small></h6>
-                                                <p><?= $reply['comment']; ?></p>
-                                            </div>
+                                foreach ($replys as $reply) : ?>
+                                    <div class="media mt-4">
+                                        <img src="../img/user.png" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6><a href=""><?= $reply['username']; ?></a> <small><i><?= date("d F Y H:i:s", strtotime($reply['tanggal'])); ?></i></small></h6>
+                                            <p><?= $reply['comment']; ?></p>
                                         </div>
-                                    <?php endforeach;  ?>
+                                    </div>
+                                <?php endforeach;  ?>
                             </div>
                         </div>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
                 </div>
                 <!-- Comment List End -->
 
@@ -228,7 +228,7 @@ if (!isset($_SESSION["username"])) {
                     <h3 class="mb-4">Leave a comment</h3>
                     <form action="" method="post">
                         <div class="form-group">
-                            <label for="name">Comment as <b><?= $userr;?></b></label>
+                            <label for="name">Comment as <b><?= $userr; ?></b></label>
                             <input type="text" class="form-control" name="user_id" value="<?php echo $iduser['id_user']; ?>" hidden>
                         </div>
                         <div class="form-group">
@@ -241,7 +241,7 @@ if (!isset($_SESSION["username"])) {
                         </div>
                         <div class="form-group">
                             <!-- post id -->
-                            <input type="number" class="form-control" name="post_id" value="<?= $id;?>" hidden>
+                            <input type="number" class="form-control" name="post_id" value="<?= $id; ?>" hidden>
                         </div>
                         <div class="form-group">
                             <label for="comment">Message *</label>
@@ -436,22 +436,22 @@ if (!isset($_SESSION["username"])) {
 
             intersection.observe(nav)
 
-        function checkForm() {
-            var comment = document.getElementById('comment').value;
-            var replyButton = document.getElementById('replyButton');
+            function checkForm() {
+                var comment = document.getElementById('comment').value;
+                var replyButton = document.getElementById('replyButton');
 
-            if (comment.trim() !== '') {
-            // Form is filled, enable the reply button
-            replyButton.removeAttribute('disabled');
-            } else {
-            // Form is not completely filled, disable the reply button
-            replyButton.setAttribute('disabled', 'true');
+                if (comment.trim() !== '') {
+                    // Form is filled, enable the reply button
+                    replyButton.removeAttribute('disabled');
+                } else {
+                    // Form is not completely filled, disable the reply button
+                    replyButton.setAttribute('disabled', 'true');
+                }
             }
+
+            document.getElementById('comment').addEventListener('input', checkForm);
+
         }
-
-         document.getElementById('comment').addEventListener('input', checkForm);
-
-     }
     </script>
 </body>
 

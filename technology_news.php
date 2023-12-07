@@ -4,10 +4,12 @@
 
 require 'php/functions.php';
 
-$technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'technology'");
+JOIN author ON posts.author_id = author.id
+WHERE nama_category = 'Technology'
+ORDER BY posts.id ASC");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -15,6 +17,12 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
 LIMIT 4");
+
+if (isset($_POST["cari"])) {
+    $keyword = $_POST["keyword"];
+    $nama_category = $_POST["nama_category"];
+    $technologies = cariCategory($keyword, $nama_category);
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +30,7 @@ LIMIT 4");
 
 <head>
     <meta charset="utf-8">
-    <title>2DAYNEWS | All technology News</title>
+    <title>2DAYNEWS | All Technology News</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -85,10 +93,15 @@ LIMIT 4");
                         <a href="login.php" class="nav-item nav-link">Login</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="input-group-append">
+                                <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword, $nama_category) ? $keyword : '' ?>">
+                                <select name="nama_category" class="form-control" hidden>
+                                    <option value="Technology" <?= (isset($nama_category) && $nama_category == 'Technology') ? 'selected' : '' ?>>Technology</option>
+                                </select>
+                                <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -105,25 +118,30 @@ LIMIT 4");
                             <h3 class="text-white m-0">technology News</h3>
                         </div>
                     </div>
-                    <?php foreach ($technologies as $technology) :
-                        $text = explode(' ', $technology['body']);
-                        $textcut = implode(' ', array_slice($text, 0, 15));
-                    ?>
-                        <div class="col-lg-4">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="img/<?= $technology['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="#"><?= $technology['nama_category']; ?></a>
-                                        <span class="px-1">/</span>
-                                        <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+
+                    <?php if (empty($technologies)) : ?>
+                        <h1 style="margin: auto;">Data tidak ditemukan</h1>
+                    <?php else : ?>
+                        <?php foreach ($technologies as $technology) :
+                            $text = explode(' ', $technology['body']);
+                            $textcut = implode(' ', array_slice($text, 0, 15));
+                        ?>
+                            <div class="col-lg-4">
+                                <div class="position-relative mb-3">
+                                    <img class="img-fluid w-100" src="img/<?= $technology['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                    <div class="overlay position-relative bg-light">
+                                        <div class="mb-2" style="font-size: 14px;">
+                                            <a href="#"><?= $technology['nama_category']; ?></a>
+                                            <span class="px-1">/</span>
+                                            <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+                                        </div>
+                                        <a class="h4" href="single.php?id=<?= $technology['id'] ?>"><?= $technology['judul'] ?></a>
+                                        <p class="m-0"><?= $textcut; ?>...</p>
                                     </div>
-                                    <a class="h4" href="single.php?id=<?= $technology['id'] ?>"><?= $technology['judul'] ?></a>
-                                    <p class="m-0"><?= $textcut; ?>...</p>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -4,10 +4,12 @@
 
 require '../php/functions.php';
 
-$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'politic'");
+JOIN author ON posts.author_id = author.id
+WHERE nama_category = 'Politic'
+ORDER BY posts.id ASC");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -15,6 +17,12 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 ORDER BY publish DESC
 LIMIT 4");
+
+if (isset($_POST["cari"])) {
+    $keyword = $_POST["keyword"];
+    $nama_category = $_POST["nama_category"];
+    $politics = cariCategory($keyword, $nama_category);
+}
 
 session_start();
 
@@ -92,10 +100,15 @@ if (!isset($_SESSION["username"])) {
                         <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
                     <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="input-group-append">
+                                <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword, $nama_category) ? $keyword : '' ?>">
+                                <select name="nama_category" class="form-control" hidden>
+                                    <option value="Politic" <?= (isset($nama_category) && $nama_category == 'Politic') ? 'selected' : '' ?>>Politic</option>
+                                </select>
+                                <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -112,25 +125,30 @@ if (!isset($_SESSION["username"])) {
                             <h3 class="text-white m-0">Politic News</h3>
                         </div>
                     </div>
-                    <?php foreach ($politics as $politic) :
-                        $text = explode(' ', $politic['body']);
-                        $textcut = implode(' ', array_slice($text, 0, 15));
-                    ?>
-                        <div class="col-lg-4">
-                            <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="../img/<?= $politic['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
-                                <div class="overlay position-relative bg-light">
-                                    <div class="mb-2" style="font-size: 14px;">
-                                        <a href="#"><?= $politic['nama_category']; ?></a>
-                                        <span class="px-1">/</span>
-                                        <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+
+                    <?php if (empty($politics)) : ?>
+                        <h1 style="margin: auto;">Data tidak ditemukan</h1>
+                    <?php else : ?>
+                        <?php foreach ($politics as $politic) :
+                            $text = explode(' ', $politic['body']);
+                            $textcut = implode(' ', array_slice($text, 0, 15));
+                        ?>
+                            <div class="col-lg-4">
+                                <div class="position-relative mb-3">
+                                    <img class="img-fluid w-100" src="../img/<?= $politic['img']; ?>" style="width: 400px; height: 250px; object-fit: cover;">
+                                    <div class="overlay position-relative bg-light">
+                                        <div class="mb-2" style="font-size: 14px;">
+                                            <a href="#"><?= $politic['nama_category']; ?></a>
+                                            <span class="px-1">/</span>
+                                            <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+                                        </div>
+                                        <a class="h4" href="single.php?id=<?= $politic['id'] ?>"><?= $politic['judul'] ?></a>
+                                        <p class="m-0"><?= $textcut; ?>...</p>
                                     </div>
-                                    <a class="h4" href="single.php?id=<?= $politic['id'] ?>"><?= $politic['judul'] ?></a>
-                                    <p class="m-0"><?= $textcut; ?>...</p>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

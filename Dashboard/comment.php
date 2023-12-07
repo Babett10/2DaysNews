@@ -4,7 +4,7 @@
 
 require '../php/functions.php';
 
-$comment = query("SELECT id, comment, tanggal FROM comment");
+$comment = query("SELECT comment.id, judul, comment, tanggal FROM comment JOIN posts ON comment.post_id = posts.id");
 
 session_start();
 
@@ -145,12 +145,13 @@ if (!isset($_SESSION["username"])) {
                         <h1 class="h2">Comment</h1>
                     </div>
 
-                    <div class="table-responsive col-lg-8">
+                    <div class="table-responsive col-lg-11">
                         <table class="table table-bordered  table-striped table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Comment</th>
+                                    <th scope="col" width="350px">Title</th>
+                                    <th scope="col" width="300px">Comment</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -162,8 +163,9 @@ if (!isset($_SESSION["username"])) {
                                 <?php foreach ($comment as $coment) : ?>
                                     <tr>
                                         <td><?= $i; ?>.</td>
+                                        <td><?= $coment['judul']; ?></td>
                                         <td><?= $coment['comment']; ?></td>
-                                        <td><?= $coment['tanggal']; ?></td>
+                                        <td><?= date("d F Y H:i:s", strtotime($coment['tanggal'])); ?></td>
                                         <td>
                                             <a href="../php/comment/delete.php?id=<?= $coment['id']; ?>" class="badge bg-danger" onclick="return confirm('Hapus Data?')"><span data-feather="x-circle" style="width: 18px;"></span></a>
                                         </td>
@@ -180,6 +182,7 @@ if (!isset($_SESSION["username"])) {
 
     <!-- JS Dashboard -->
     <script src="../js/dashboard.js"></script>
+    <!-- JS Feather icon -->
     <!-- JS Feather icon -->
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- JS Bootstrap -->
