@@ -12,7 +12,7 @@ WHERE nama_category = 'Sport' LIMIT 3");
 $politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Politic' LIMIT 3");
+WHERE nama_category = 'Politics' LIMIT 3");
 
 $technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -27,7 +27,7 @@ WHERE nama_category = 'E-Sport' LIMIT 3");
 $film = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'FIlm' LIMIT 3");
+WHERE nama_category = 'Film' LIMIT 3");
 
 $otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -104,16 +104,10 @@ LIMIT 4");
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link  ">Home</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="category.php" class="nav-item nav-link active">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="login.php" class="nav-item nav-link">Login</a>
-                    </div>
-                    <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
                     </div>
                 </div>
             </nav>
@@ -336,6 +330,7 @@ LIMIT 4");
                         <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
                         <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
                         <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="about_us.php"><i class="fa fa-angle-right text-dark mr-2"></i>About Us</a>
                         <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ WHERE nama_category = 'Sport' LIMIT 3");
 $politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Politic' LIMIT 3");
+WHERE nama_category = 'Politics' LIMIT 3");
 
 $technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -27,7 +27,7 @@ WHERE nama_category = 'E-Sport' LIMIT 3");
 $film = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'FIlm' LIMIT 3");
+WHERE nama_category = 'Film' LIMIT 3");
 
 $otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -114,12 +114,6 @@ if (!isset($_SESSION["username"])) {
                         <a href="category.php" class="nav-item nav-link active">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="logout.php" class="nav-item nav-link">Logout</a>
-                    </div>
-                    <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
                     </div>
                 </div>
             </nav>

@@ -87,8 +87,8 @@ if (isset($_POST["cari"])) {
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link active ">Home</a>
-                        <a href="category.php" class="nav-item nav-link">Category</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
+                        <a href="category.php" class="nav-item nav-link active">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="login.php" class="nav-item nav-link">Login</a>
                     </div>
@@ -115,7 +115,7 @@ if (isset($_POST["cari"])) {
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
-                            <h3 class="text-white m-0">technology News</h3>
+                            <h3 class="text-white m-0">Technology News</h3>
                         </div>
                     </div>
 

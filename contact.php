@@ -79,12 +79,6 @@ LIMIT 4");
                         <a href="contact.php" class="nav-item nav-link active">Contact</a>
                         <a href="login.php" class="nav-item nav-link">Login</a>
                     </div>
-                    <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
                 </div>
             </nav>
         </div>
@@ -205,6 +199,7 @@ LIMIT 4");
                         <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
                         <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
                         <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="about_us.php"><i class="fa fa-angle-right text-dark mr-2"></i>About Us</a>
                         <a class="text-secondary" href="login.php"><i class="fa fa-angle-right text-dark mr-2"></i>Login</a>
                     </div>
                 </div>

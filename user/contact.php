@@ -86,12 +86,6 @@ if (!isset($_SESSION["username"])) {
                         <a href="contact.php" class="nav-item nav-link active">Contact</a>
                         <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
-                    <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
                 </div>
             </nav>
         </div>

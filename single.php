@@ -89,16 +89,10 @@ JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link active ">Home</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="category.php" class="nav-item nav-link">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="login.php" class="nav-item nav-link">Login</a>
-                    </div>
-                    <div class="input-group" style="width: 100%; max-width: 300px;">
-                        <input type="text" class="form-control" placeholder="search">
-                        <div class="input-group-append">
-                            <button class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
-                        </div>
                     </div>
                 </div>
             </nav>

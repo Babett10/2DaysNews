@@ -8,7 +8,7 @@ $politics = query("SELECT posts.id, judul, body, img, publish, category.nama_cat
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
-WHERE nama_category = 'Politic'
+WHERE nama_category = 'Politics'
 ORDER BY posts.id ASC");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
@@ -94,8 +94,8 @@ if (!isset($_SESSION["username"])) {
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link active ">Home</a>
-                        <a href="category.php" class="nav-item nav-link">Category</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
+                        <a href="category.php" class="nav-item nav-link active">Category</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                         <a href="logout.php" class="nav-item nav-link">Logout</a>
                     </div>
@@ -104,7 +104,7 @@ if (!isset($_SESSION["username"])) {
                             <div class="input-group-append">
                                 <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword, $nama_category) ? $keyword : '' ?>">
                                 <select name="nama_category" class="form-control" hidden>
-                                    <option value="Politic" <?= (isset($nama_category) && $nama_category == 'Politic') ? 'selected' : '' ?>>Politic</option>
+                                    <option value="Politics" <?= (isset($nama_category) && $nama_category == 'Politics') ? 'selected' : '' ?>>Politics</option>
                                 </select>
                                 <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                             </div>
@@ -122,7 +122,7 @@ if (!isset($_SESSION["username"])) {
                 <div class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex align-items-center justify-content-between bg-dark py-2 px-4 mb-3">
-                            <h3 class="text-white m-0">Politic News</h3>
+                            <h3 class="text-white m-0">Politics News</h3>
                         </div>
                     </div>
 
