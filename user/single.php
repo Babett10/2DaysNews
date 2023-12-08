@@ -32,11 +32,14 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 WHERE posts.id = $id")[0];
 
+$catID = $posts['category_id'];
+
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
-ORDER BY publish DESC
+WHERE category_id = $catID
+ORDER BY Publish DESC
 LIMIT 5");
 
 $comments = query("SELECT id,parent_id,comment,tanggal,username,post_id,user_id FROM `comment` 
@@ -260,7 +263,7 @@ if (!isset($_SESSION["username"])) {
                 <!-- Popular News Start -->
                 <div class="pb-3">
                     <div class="bg-dark py-2 px-4 mb-3">
-                        <h3 class="m-0" style="color: white;">Breaking News</h3>
+                        <h3 class="m-0" style="color: white;">Top News</h3>
                     </div>
 
                     <?php
