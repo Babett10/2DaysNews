@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12"> 
                     <div class="card">
-                        <img src="img/team_05.jpg" class="card-img-top" alt="...">
+                        <img src="img/anggun.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center;">Anggun Wulan Sari</h5>
                             <h6 class="card-subtitle text-muted" style="text-align: center;">Frontend Developer</h6>
