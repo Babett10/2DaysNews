@@ -11,9 +11,16 @@ JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 WHERE posts.id = $id")[0];
 
+$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+FROM posts
+JOIN category ON posts.category_id = category.id
+JOIN author ON posts.author_id = author.id
+ORDER BY publish DESC
+LIMIT 4");
+
 $catID = $posts['category_id'];
 
-$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$relatedposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
@@ -23,7 +30,6 @@ LIMIT 5");
 
 $comments = query("SELECT id,parent_id,comment,tanggal,username FROM `comment` 
 JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 0 ;");
-
 ?>
 
 <!DOCTYPE html>
@@ -172,20 +178,20 @@ JOIN user ON comment.user_id = user.id_user WHERE post_id = $id AND parent_id = 
                 <!-- Popular News Start -->
                 <div class="pb-3">
                     <div class="bg-dark py-2 px-4 mb-3">
-                        <h3 class="m-0" style="color: white;">Top News</h3>
+                        <h3 class="m-0" style="color: white;">Related News</h3>
                     </div>
 
                     <?php
-                    foreach ($breakingposts as $Bpost) : ?>
+                    foreach ($relatedposts as $Rpost) : ?>
                         <div class="d-flex mb-3">
-                            <img src="img/<?= $Bpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="img/<?= $Rpost['img']; ?>" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
+                                    <a href="<?= $Rpost['nama_category']; ?>_news.php"><?= $Rpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
-                                    <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
+                                    <span><?= date("F d, Y", strtotime($Rpost['publish'])); ?></span>
                                 </div>
-                                <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?= $Bpost['judul']; ?></a>
+                                <a class="h6 m-0" href="single.php?id=<?= $Rpost['id'] ?>"><?= $Rpost['judul']; ?></a>
                             </div>
                         </div>
                     <?php endforeach; ?>

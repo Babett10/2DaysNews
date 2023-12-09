@@ -47,49 +47,49 @@
             </nav>
         </div>
     </header>
-        <div class="container-fluid py-3 px-lg-5 mt-3">   
-            <div class="col-md-12 mt-3 mb-5">
-                <h2 style="text-align: center;">OUR TEAM</h2>
+    <div class="container-fluid py-3 px-lg-5 mt-3">
+        <div class="col-md-12 mt-3 mb-5">
+            <h2 style="text-align: center;">OUR TEAM</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="img/team_05.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Albert Radja Sihite</h5>
+                        <h6 class="card-subtitle text-muted" style="text-align: center;">Backend Developer</h6>
+                    </div>
+                </div>
             </div>
-            <div class="row mb-5">
-                <div class="col-lg-3 col-md-6 col-sm-12"> 
-                    <div class="card">
-                        <img src="img/team_05.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Albert Radja Sihite</h5>
-                            <h6 class="card-subtitle text-muted" style="text-align: center;">Backend Developer</h6>
-                        </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="img/egi.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Mohamad Egi Rahayu</h5>
+                        <h6 class="card-subtitle text-muted" style="text-align: center;">Backend Developer</h6>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12"> 
-                    <div class="card">
-                        <img src="img/team_05.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Mohamad Egi Rahayu</h5>
-                            <h6 class="card-subtitle text-muted" style="text-align: center;">Backend Developer</h6>
-                        </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="img/rk.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Hafiz Raka Pradana</h5>
+                        <h6 class="card-subtitle text-muted" style="text-align: center;">Frontend Developer</h6>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12"> 
-                    <div class="card">
-                        <img src="img/rk.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Hafiz Raka Pradana</h5>
-                            <h6 class="card-subtitle text-muted" style="text-align: center;">Frontend Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12"> 
-                    <div class="card">
-                        <img src="img/anggun.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Anggun Wulan Sari</h5>
-                            <h6 class="card-subtitle text-muted" style="text-align: center;">Frontend Developer</h6>
-                        </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="img/anggun.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Anggun Wulan Sari</h5>
+                        <h6 class="card-subtitle text-muted" style="text-align: center;">Frontend Developer</h6>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <footer>
         <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
             <div class="row">
@@ -170,7 +170,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script type="text/javascript">
-
         function observer() {
             const nav = document.querySelector(".nav-observer")
             const intersection = new IntersectionObserver((entries) => {
