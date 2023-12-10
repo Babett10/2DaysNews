@@ -12,7 +12,7 @@ WHERE nama_category = 'Sport' LIMIT 3");
 $politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
-WHERE nama_category = 'Politics' LIMIT 3");
+WHERE nama_category = 'Politic' LIMIT 3");
 
 $technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts

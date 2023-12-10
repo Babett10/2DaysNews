@@ -8,7 +8,7 @@ $politics = query("SELECT posts.id, judul, body, img, publish, category.nama_cat
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
-WHERE nama_category = 'Politics'
+WHERE nama_category = 'Politic'
 ORDER BY posts.id ASC");
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
