@@ -97,7 +97,7 @@ if (isset($_POST["cari"])) {
                             <div class="input-group-append">
                                 <input style="width: 260px;" type="text" name="keyword" class="form-control" placeholder="search" value="<?= isset($keyword, $nama_category) ? $keyword : '' ?>">
                                 <select name="nama_category" class="form-control" hidden>
-                                    <option value="Politics" <?= (isset($nama_category) && $nama_category == 'Politics') ? 'selected' : '' ?>>Politics</option>
+                                    <option value="Politic" <?= (isset($nama_category) && $nama_category == 'Politic') ? 'selected' : '' ?>>Politics</option>
                                 </select>
                                 <button type="submit" name="cari" class="input-group-text text-secondary"><i class="fa fa-search"></i></button>
                             </div>
