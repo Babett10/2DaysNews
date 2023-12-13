@@ -164,7 +164,7 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
                 <button class="btn btn-main-sm box" type="submit" name="submit">Sign In</button>
               </form>
               <div class="new-acount">
-                <a href="#">Forget your password?</a>
+                <a href="forgot.php">Forgot your password?</a>
                 <p>Don't Have an account? <a href="signup.php" class="text-primary"> SIGN UP</a></p>
               </div>
             </div>
@@ -173,12 +173,6 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
       </div>
     </div>
   </section>
-
-
-  <!-- To Top -->
-  <div class="scroll-top-to">
-    <i class="ti-angle-up"></i>
-  </div>
 
   <!-- JAVASCRIPTS -->
   <script src="login/plugins/jquery/jquery.min.js"></script>

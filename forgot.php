@@ -4,16 +4,16 @@
 
 require 'php/functions.php';
 
-if (isset($_POST["signup"])) {
+if (isset($_POST["forgot"])) {
 
-    if (signup($_POST) > 0) {
+    if (forgot($_POST) > 0) {
         echo "<script>
-                alert('Sign Up Successful');
+                alert('Reset Password Successful');
                 document.location.href = 'login.php';
               </script>";
     } else {
         echo "<script>
-                alert('Sign Up Failed');
+                alert('Reset Password Failed');
               </script>";
     }
 }
@@ -27,7 +27,7 @@ if (isset($_POST["signup"])) {
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>2DAYNEWS | Sign Up</title>
+    <title>2DAYNEWS | Reset Password</title>
 
     <!-- Mobile Specific Metas
   ================================================== -->
@@ -85,25 +85,18 @@ if (isset($_POST["signup"])) {
                         <div class="content text-center">
                             <img src="login/logo.jpg" width="230px" alt="">
                             <div class="title-text">
-                                <h3><b>Sign Up </b></h3>
+                                <h3><b>Forgot Password?</b></h3>
                             </div>
                             <form action="" method="post">
-                                <?php if (isset($error)) : ?>
-                                    <p style="color: red; font-style: italic;">Username atau Password salah</p>
-                                <?php endif; ?>
-
                                 <!-- Username -->
                                 <input class="form-control main" type="text" id="username" name="username" placeholder="Username" required>
                                 <!-- Password -->
-                                <input class="form-control main" type="password" id="password" name="password" placeholder="Password" required>
+                                <input class="form-control main" type="password" id="password" name="password" placeholder="New Password" required>
                                 <!-- Konfirmasi Password -->
-                                <input class="form-control main" type="password" id="password" name="password" placeholder="Confirm Password" required>
+                                <input class="form-control main" type="password" id="password" name="password" placeholder="Confirm New Password" required>
                                 <!-- Submit Button -->
-                                <button class="btn btn-main-sm" type="submit" name="signup">Sign Up</button>
+                                <button class="btn btn-main-sm" type="submit" name="forgot">Reset Password</button>
                             </form>
-                            <div class="new-acount">
-                                <p>Anready have an account? <a href="login.php" class="text-primary">SIGN IN</a></p>
-                            </div>
                         </div>
                     </div>
                 </div>
