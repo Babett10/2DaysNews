@@ -4,7 +4,7 @@
 
 require 'php/functions.php';
 
-$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
+$politics = query("SELECT posts.id, judul,view,body, img, publish, category.nama_category, author.nama_author
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
@@ -134,6 +134,8 @@ if (isset($_POST["cari"])) {
                                             <a href="#"><?= $politic['nama_category']; ?></a>
                                             <span class="px-1">/</span>
                                             <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+                                            <span class="px-1">/</span>
+                                            <span><?php echo "Viewed " . $politic['view'] . " times"; ?> </span>
                                         </div>
                                         <a class="h4" href="single.php?id=<?= $politic['id'] ?>"><?= $politic['judul'] ?></a>
                                         <p class="m-0"><?= $textcut; ?>...</p>

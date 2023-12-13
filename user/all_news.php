@@ -4,7 +4,7 @@
 
 require '../php/functions.php';
 
-$posts = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
+$posts = query("SELECT posts.id, judul, body,view, img, publish, category.nama_category, author.nama_author
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id

@@ -4,37 +4,37 @@
 
 require 'php/functions.php';
 
-$sports = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$sports = query("SELECT posts.id, judul, view, body, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Sport' LIMIT 3");
 
-$politics = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$politics = query("SELECT posts.id, judul, body,view, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Politic' LIMIT 3");
 
-$technologies = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$technologies = query("SELECT posts.id, judul, body,view, img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Technology' LIMIT 3");
 
-$esports = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$esports = query("SELECT posts.id, judul, body, img,view, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'E-Sport' LIMIT 3");
 
-$film = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$film = query("SELECT posts.id, judul, body, img,view, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Film' LIMIT 3");
 
-$otomotif = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$otomotif = query("SELECT posts.id, judul, body, img,view, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 WHERE nama_category = 'Otomotif' LIMIT 3");
 
-$breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
+$breakingposts = query("SELECT posts.id, judul, body, view,img, publish, category.nama_category
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
@@ -132,6 +132,8 @@ LIMIT 4");
                                     <a href="<?= $politic['nama_category']; ?>_news.php"><?= $politic['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($politic['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $politic['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $politic['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
@@ -159,6 +161,8 @@ LIMIT 4");
                                     <a href="<?= $sport['nama_category']; ?>_news.php"><?= $sport['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($sport['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $sport['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $sport['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
@@ -186,6 +190,8 @@ LIMIT 4");
                                     <a href="<?= $esport['nama_category']; ?>_news.php"><?= $esport['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($esport['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $esport['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $esport['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
@@ -213,6 +219,8 @@ LIMIT 4");
                                     <a href="<?= $technology['nama_category']; ?>_news.php"><?= $technology['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($technology['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $technology['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $technology['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
@@ -241,6 +249,8 @@ LIMIT 4");
                                     <a href="<?= $movie['nama_category']; ?>_news.php"><?= $movie['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($movie['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $movie['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $movie['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>
@@ -268,6 +278,8 @@ LIMIT 4");
                                     <a href="<?= $oto['nama_category']; ?>_news.php"><?= $oto['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($oto['publish'])); ?></span>
+                                    <span class="px-1">/</span>
+                                    <span><?php echo "Viewed " . $oto['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h4 m-0" href="single.php?id=<?= $oto['id'] ?>"><?= $textcut . "..." ?></a>
                             </div>

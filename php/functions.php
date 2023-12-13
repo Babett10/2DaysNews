@@ -296,3 +296,16 @@ function cariCategory($keyword, $nama_category)
                 ";
     return query($query);
 }
+
+function tambahViews($id)
+{
+    $conn = koneksi();
+    $posts = query("SELECT view FROM posts WHERE posts.id = $id")[0];
+    $viewer = $viewer = $posts['view'];
+    $viewer++;
+
+    $query = "UPDATE posts SET view = $viewer WHERE id = $id";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}

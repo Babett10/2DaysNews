@@ -11,7 +11,7 @@ require '../functions.php';
 
 $id = $_GET['id'];
 
-$posts = query("SELECT posts.id, img, judul, body, publish, category.nama_category, author.nama_author
+$posts = query("SELECT posts.id, img, judul, body,view, publish, category.nama_category, author.nama_author
   FROM posts 
   JOIN category ON posts.category_id = category.id
   JOIN author ON posts.author_id = author.id
@@ -55,6 +55,8 @@ $posts = query("SELECT posts.id, img, judul, body, publish, category.nama_catego
                         <a href="#"><?= $posts['nama_category'] ?></a>
                         <span class="px-1">/</span>
                         <span><?= date("F d, Y", strtotime($posts['publish'])); ?></span>
+                        <span class="px-1">/</span>
+                        <span><?php echo "Viewed " . $posts['view'] . " times"; ?> </span>
                     </div>
                     <div class="mb-3">
                         <a>By <?= $posts['nama_author']; ?></a>

@@ -26,11 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $id = $_GET['id'];
-$posts = query("SELECT posts.id, img, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
+$posts = query("SELECT posts.id, img,view, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
 FROM posts 
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
 WHERE posts.id = $id")[0];
+
+tambahViews($id);
 
 $breakingposts = query("SELECT posts.id, judul, body, img, publish, category.nama_category
 FROM posts
@@ -166,8 +168,11 @@ if (!isset($_SESSION["username"])) {
                             <span class="px-1">/</span>
                             <span><?= date("F d, Y", strtotime($posts['publish'])); ?></span>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <a><?php echo "By " . $posts['nama_author']; ?></a>
+                        </div>
+                        <div class="mb-3">
+                            <a><?php echo "Viewed " . $posts['view'] . " times"; ?></a>
                         </div>
                         <div>
                             <h3 class="mb-3"><?= $posts['judul']; ?></h3>

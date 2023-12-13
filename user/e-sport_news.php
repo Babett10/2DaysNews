@@ -4,7 +4,7 @@
 
 require '../php/functions.php';
 
-$esports = query("SELECT posts.id, judul, body, img, publish, category.nama_category, author.nama_author
+$esports = query("SELECT posts.id, judul, body, img, view, publish, category.nama_category, author.nama_author
 FROM posts
 JOIN category ON posts.category_id = category.id
 JOIN author ON posts.author_id = author.id
@@ -141,6 +141,8 @@ if (!isset($_SESSION["username"])) {
                                             <a href="#"><?= $esport['nama_category']; ?></a>
                                             <span class="px-1">/</span>
                                             <span><?= date("F d, Y", strtotime($esport['publish'])); ?></span>
+                                            <span class="px-1">/</span>
+                                              <span><?php echo "Viewed " . $esport['view'] . " times"; ?> </span>
                                         </div>
                                         <a class="h4" href="single.php?id=<?= $esport['id'] ?>"><?= $esport['judul'] ?></a>
                                         <p class="m-0"><?= $textcut; ?>...</p>
