@@ -275,13 +275,6 @@ function forgot($data)
     $username = strtolower(stripcslashes($data["username"]));
     $password = mysqli_real_escape_string($conn, $data["password"]);
 
-    $result = mysqli_query($conn, "SELECT password FROM user WHERE username = '$username'");
-    if (mysqli_fetch_assoc($result)) {
-        echo "<script>
-                alert('Password sudah pernah digunakan');
-              </script>";
-        return false;
-    }
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
