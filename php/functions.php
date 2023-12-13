@@ -216,6 +216,7 @@ function delete_author($id)
     return mysqli_affected_rows($conn);
 }
 
+// Comment
 function add_comment($data)
 {
     $conn = koneksi();
@@ -236,7 +237,6 @@ function add_comment($data)
     return mysqli_affected_rows($conn);
 }
 
-// Comment
 function delete_comment($id)
 {
     $conn = koneksi();
@@ -264,6 +264,31 @@ function signup($data)
 
     $query_tambah = "INSERT INTO user VALUES('', '$username', '$password', 'user')";
     mysqli_query($conn, $query_tambah);
+
+    return mysqli_affected_rows($conn);
+}
+
+// Forgot Password
+function forgot($data)
+{
+    $conn = koneksi();
+    $username = strtolower(stripcslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+
+    $result = mysqli_query($conn, "SELECT password FROM user WHERE username = '$username'");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('Password sudah pernah digunakan');
+              </script>";
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $query_forgot = "UPDATE user SET
+                     password = '$password'
+                     WHERE username = '$username'";
+    mysqli_query($conn, $query_forgot);
 
     return mysqli_affected_rows($conn);
 }

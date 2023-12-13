@@ -205,6 +205,7 @@ if (!isset($_SESSION["username"])) {
                         <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
                         <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
                         <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="about_us.php"><i class="fa fa-angle-right text-dark mr-2"></i>About us</a>
                         <a class="text-secondary" href="logout.php"><i class="fa fa-angle-right text-dark mr-2"></i>Logout</a>
                     </div>
                 </div>

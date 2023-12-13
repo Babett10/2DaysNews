@@ -238,7 +238,7 @@ if (!isset($_SESSION["username"])) {
                 </div>
             </div>
 
-            
+
             <div class="col-lg-6 py-3">
                 <div class="bg-dark py-2 px-4 mb-3">
                     <h3 class="m-0" style="color: white;">Film</h3>
@@ -297,7 +297,7 @@ if (!isset($_SESSION["username"])) {
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 
@@ -349,6 +349,7 @@ if (!isset($_SESSION["username"])) {
                         <a class="text-secondary" href="index.php"><i class="fa fa-angle-right text-dark mr-2"></i>Home</a>
                         <a class="text-secondary" href="category.php"><i class="fa fa-angle-right text-dark mr-2"></i>Category</a>
                         <a class="text-secondary" href="contact.php"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                        <a class="text-secondary" href="about_us.php"><i class="fa fa-angle-right text-dark mr-2"></i>About us</a>
                         <a class="text-secondary" href="logout.php"><i class="fa fa-angle-right text-dark mr-2"></i>Logout</a>
                     </div>
                 </div>
