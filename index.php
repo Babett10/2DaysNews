@@ -188,8 +188,6 @@ if (isset($_POST["cari"])) {
                                     <a href="<?= $Bpost['nama_category']; ?>_news.php"><?= $Bpost['nama_category']; ?></a>
                                     <span class="px-1">/</span>
                                     <span><?= date("F d, Y", strtotime($Bpost['publish'])); ?></span>
-                                    <span class="px-1">/</span>
-                                    <span><?php echo "Viewed " . $post['view'] . " times"; ?> </span>
                                 </div>
                                 <a class="h6 m-0" href="single.php?id=<?= $Bpost['id'] ?>"><?php echo $textbreakingcut . "..." ?></a>
                             </div>
