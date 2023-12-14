@@ -289,7 +289,7 @@ function forgot($data)
 // Searching
 function cari($keyword)
 {
-    $query = "SELECT posts.id, judul, img, body, publish, nama_category, nama_author FROM posts
+    $query = "SELECT posts.id, judul, img, view, body, publish, nama_category, nama_author FROM posts
                 JOIN category ON posts.category_id = category.id
                 JOIN author ON posts.author_id = author.id
                 WHERE
@@ -303,7 +303,7 @@ function cari($keyword)
 
 function cariCategory($keyword, $nama_category)
 {
-    $query = "SELECT posts.id, judul, img, body, publish, nama_category, nama_author FROM posts
+    $query = "SELECT posts.id, judul, img, view, body, publish, nama_category, nama_author FROM posts
                 JOIN category ON posts.category_id = category.id
                 JOIN author ON posts.author_id = author.id
                 WHERE
