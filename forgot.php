@@ -3,18 +3,26 @@
 // Final Project
 
 require 'php/functions.php';
+$random = rand(9999,1000);
 
 if (isset($_POST["forgot"])) {
+    $captcha = $_REQUEST['chaptcha'];
+    $randChaptcha = $_REQUEST['randChaptcha'];
+    if ($captcha != $randChaptcha) {
+        $errorChaptcha = true;
+    }
+    else {
 
-    if (forgot($_POST) > 0) {
-        echo "<script>
-                alert('Reset Password Successful');
-                document.location.href = 'login.php';
-              </script>";
-    } else {
-        echo "<script>
-                alert('Reset Password Failed');
-              </script>";
+        if (forgot($_POST) > 0) {
+            echo "<script>
+                    alert('Reset Password Successful');
+                    document.location.href = 'login.php';
+                </script>";
+        } else {
+            echo "<script>
+                    alert('Reset Password Failed');
+                </script>";
+        }
     }
 }
 ?>
@@ -88,12 +96,21 @@ if (isset($_POST["forgot"])) {
                                 <h3><b>Forgot Password?</b></h3>
                             </div>
                             <form action="" method="post">
+                                <?php if (isset($errorChaptcha)) : ?>
+                                    <p style="color: red; font-style: italic;">Chaptcha Salah</p>
+                                <?php endif; ?>
                                 <!-- Username -->
                                 <input class="form-control main" type="text" id="username" name="username" placeholder="Username" required>
                                 <!-- Password -->
                                 <input class="form-control main" type="password" id="password" name="password" placeholder="New Password" required>
                                 <!-- Konfirmasi Password -->
                                 <input class="form-control main" type="password" id="password" name="password" placeholder="Confirm New Password" required>
+                                 <!-- Chaptcha -->
+                                 <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Chaptcha" id="chaptcha" name="chaptcha" maxlength="4" required>
+                                <span class="input-group-text"><?php echo $random ?></span>
+                                <input type="hidden" id="randChaptcha" name="randChaptcha" value="<?php echo $random ?>">
+                                </div>
                                 <!-- Submit Button -->
                                 <button class="btn btn-main-sm" type="submit" name="forgot">Reset Password</button>
                             </form>

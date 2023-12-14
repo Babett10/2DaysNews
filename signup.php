@@ -4,17 +4,25 @@
 
 require 'php/functions.php';
 
-if (isset($_POST["signup"])) {
+$random = rand(9999,1000);
 
-    if (signup($_POST) > 0) {
-        echo "<script>
-                alert('Sign Up Successful');
-                document.location.href = 'login.php';
-              </script>";
-    } else {
-        echo "<script>
-                alert('Sign Up Failed');
-              </script>";
+if (isset($_POST["signup"])) {
+    $captcha = $_REQUEST['chaptcha'];
+    $randChaptcha = $_REQUEST['randChaptcha'];
+    if ($captcha != $randChaptcha) {
+        $errorChaptcha = true;
+    }
+    else {
+        if (signup($_POST) > 0) {
+            echo "<script>
+                    alert('Sign Up Successful');
+                    document.location.href = 'login.php';
+                </script>";
+        } else {
+            echo "<script>
+                    alert('Sign Up Failed');
+                </script>";
+        }
     }
 }
 ?>
@@ -88,8 +96,8 @@ if (isset($_POST["signup"])) {
                                 <h3><b>Sign Up </b></h3>
                             </div>
                             <form action="" method="post">
-                                <?php if (isset($error)) : ?>
-                                    <p style="color: red; font-style: italic;">Username atau Password salah</p>
+                                <?php if (isset($errorChaptcha)) : ?>
+                                    <p style="color: red; font-style: italic;">Chaptcha Salah</p>
                                 <?php endif; ?>
 
                                 <!-- Username -->
@@ -98,6 +106,12 @@ if (isset($_POST["signup"])) {
                                 <input class="form-control main" type="password" id="password" name="password" placeholder="Password" required>
                                 <!-- Konfirmasi Password -->
                                 <input class="form-control main" type="password" id="password" name="password" placeholder="Confirm Password" required>
+                                <!-- Chaptcha -->
+                                <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Chaptcha" id="chaptcha" name="chaptcha" maxlength="4" required>
+                                <span class="input-group-text"><?php echo $random ?></span>
+                                <input type="hidden" id="randChaptcha" name="randChaptcha" value="<?php echo $random ?>">
+                                </div>
                                 <!-- Submit Button -->
                                 <button class="btn btn-main-sm" type="submit" name="signup">Sign Up</button>
                             </form>
