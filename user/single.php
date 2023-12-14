@@ -4,12 +4,10 @@
 
 require '../php/functions.php';
 
+$id = $_GET['id'];
 if (isset($_POST['add_comment'])) {
     if (add_comment($_POST) > 0) {
-        echo "<script>
-            alert('Data Added successfully!');
-            document.location.href = 'index.php';
-          </script>";
+        header("Location: single.php?id=$id");
     } else {
         echo "<script>
             alert('Data Failed to add!');
@@ -25,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$id = $_GET['id'];
 $posts = query("SELECT posts.id, img,view, judul, body, publish, category_id, category.nama_category, author_id, author.nama_author
 FROM posts 
 JOIN category ON posts.category_id = category.id
