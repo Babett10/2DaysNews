@@ -1,7 +1,6 @@
 <?php
 // Kelompok 2 - 2DAYNEWS
 // Final Project
-
 session_start();
 require 'php/functions.php';
 
@@ -10,62 +9,78 @@ if (isset($_SESSION['username'])) {
   exit;
 }
 
+$random = rand(9999,1000);
+
 // Admin
 if (isset($_POST['submit'])) {
+  $captcha = $_REQUEST['chaptcha'];
+  $randChaptcha = $_REQUEST['randChaptcha'];
+  if ($captcha != $randChaptcha) {
+    $errorChaptcha = true;
+  }
+  else {
   $username = $_POST['username'];
   $password = $_POST['password'];
   $cek_user = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username' AND roles = 'admin'");
+  
+    if (mysqli_num_rows($cek_user) > 0) {
+      $row = mysqli_fetch_assoc($cek_user);
+      if (password_verify($password, $row['password'])) {
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['hash'] = hash('sha256', $row['id_user'], false);
 
-  if (mysqli_num_rows($cek_user) > 0) {
-    $row = mysqli_fetch_assoc($cek_user);
-    if (password_verify($password, $row['password'])) {
-      $_SESSION['username'] = $_POST['username'];
-      $_SESSION['hash'] = hash('sha256', $row['id_user'], false);
+        if (isset($_POST['remember'])) {
+          setcookie('username', $row['username'], time() + 60 * 60 * 24);
+          $hash = hash('sha256', $row['id_user']);
+          setcookie('hash', $hash, time() + 60 * 60 * 24);
+        }
 
-      if (isset($_POST['remember'])) {
-        setcookie('username', $row['username'], time() + 60 * 60 * 24);
-        $hash = hash('sha256', $row['id_user']);
-        setcookie('hash', $hash, time() + 60 * 60 * 24);
-      }
-
-      if (hash('sha256', $row['id_user']) == $_SESSION['hash']) {
-        header("Location: dashboard/admin.php");
+        if (hash('sha256', $row['id_user']) == $_SESSION['hash']) {
+          header("Location: dashboard/admin.php");
+          die;
+        }
+        header("Location: user/index.php");
         die;
       }
-      header("Location: user/index.php");
-      die;
     }
+    $errorLogin = true;
   }
-  $error = true;
 }
 
 // User
 if (isset($_POST['submit'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $cek_user = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username' AND roles = 'user'");
+  $captcha = $_REQUEST['chaptcha'];
+  $randChaptcha = $_REQUEST['randChaptcha'];
+  if ($captcha != $randChaptcha) {
+    $errorChaptcha = true;
+  }
+  else {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $cek_user = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username' AND roles = 'user'");
 
-  if (mysqli_num_rows($cek_user) > 0) {
-    $row = mysqli_fetch_assoc($cek_user);
-    if (password_verify($password, $row['password'])) {
-      $_SESSION['username'] = $_POST['username'];
-      $_SESSION['hash'] = hash('sha256', $row['id_user'], false);
+    if (mysqli_num_rows($cek_user) > 0) {
+      $row = mysqli_fetch_assoc($cek_user);
+      if (password_verify($password, $row['password'])) {
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['hash'] = hash('sha256', $row['id_user'], false);
 
-      if (isset($_POST['remember'])) {
-        setcookie('username', $row['username'], time() + 60 * 60 * 24);
-        $hash = hash('sha256', $row['id_user']);
-        setcookie('hash', $hash, time() + 60 * 60 * 24);
-      }
+        if (isset($_POST['remember'])) {
+          setcookie('username', $row['username'], time() + 60 * 60 * 24);
+          $hash = hash('sha256', $row['id_user']);
+          setcookie('hash', $hash, time() + 60 * 60 * 24);
+        }
 
-      if (hash('sha256', $row['id_user']) == $_SESSION['hash']) {
+        if (hash('sha256', $row['id_user']) == $_SESSION['hash']) {
+          header("Location: user/index.php");
+          die;
+        }
         header("Location: user/index.php");
         die;
       }
-      header("Location: user/index.php");
-      die;
     }
+    $errorLogin = true;
   }
-  $error = true;
 }
 
 if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
@@ -152,14 +167,22 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
                 <h3><b>Sign In </b></h3>
               </div>
               <form action="" method="post">
-                <?php if (isset($error)) : ?>
+                <?php if (isset($errorLogin)) : ?>
                   <p style="color: red; font-style: italic;">Username atau Password salah</p>
                 <?php endif; ?>
-
+                <?php if (isset($errorChaptcha)) : ?>
+                  <p style="color: red; font-style: italic;">Chaptcha salah</p>
+                <?php endif; ?>
                 <!-- Username -->
                 <input class="form-control main box" type="text" id="username" name="username" placeholder="Username" required>
                 <!-- Password -->
                 <input class="form-control main box" type="password" id="password" name="password" placeholder="Password" required>
+                <!-- Chaptcha -->
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Chaptcha" id="chaptcha" name="chaptcha" maxlength="4" required>
+                  <span class="input-group-text"><?php echo $random ?></span>
+                  <input type="hidden" id="randChaptcha" name="randChaptcha" value="<?php echo $random ?>">
+                </div>
                 <!-- Submit Button -->
                 <button class="btn btn-main-sm box" type="submit" name="submit">Sign In</button>
               </form>
